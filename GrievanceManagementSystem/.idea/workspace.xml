@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="af7bf3c1-06df-483f-9783-4060154cce2c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/AdminHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/AdminHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/AllDepartment.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/AllDepartment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/AllTicketDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/AllTicketDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/AllUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/AllUsers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/CommonComponents/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/CommonComponents/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/DeleteDepartment.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/DeleteDepartment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/DeleteUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/DeleteUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/MemberSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/MemberSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/NewDepartment.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/NewDepartment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/NewUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/NewUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/PasswordChange.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/PasswordChange.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/Practise.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/Practise.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/Ticket.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/Ticket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/UpdateTicket.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/UpdateTicket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/images/whatsweb-image1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/images/whatsweb-image3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/AdminSidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/AdminSidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/AllDepartment.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/AllDepartment.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/AllTicketDetails.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/AllTicketDetails.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/AllUsers.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/AllUsers.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/DeleteUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/DeleteUser.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/NewUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/NewUser.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/PasswordChange.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/PasswordChange.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/UpdateTicket.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Grievance Mgt System FrontEnd/grievance-management-system/src/Components/style/UpdateTicket.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/controller/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/controller/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/controller/TicketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/AlreadyExistExcepton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/AlreadyExistExcepton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/DepartmentNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/DepartmentNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/Handler/ControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/Handler/ControllerExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/Handler/ServiceExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/NullPointerFromFrontendException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/NullPointerFromFrontendException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/PasswordChangeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/PasswordChangeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/ResourceNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/TicketNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/TicketNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/custom_exception/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/entities/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/entities/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/entities/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/entities/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/entities/ERole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/entities/ERole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/entities/ERoleConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/entities/ERoleConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/entities/EStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/entities/EStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/entities/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/entities/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/filter/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/filter/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/filter/FilterConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/filter/FilterConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/mapper/EStatusConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/mapper/EStatusConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/APIResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/comment_dto/CommentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/comment_dto/CommentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/comment_dto/getCommentDTOout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/comment_dto/getCommentDTOout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/department_dto/AddDepartemntDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/department_dto/AddDepartemntDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/department_dto/DepartmentListDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/department_dto/DepartmentListDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/ticket_dto/GetTicketsDTOin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/ticket_dto/GetTicketsDTOin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/ticket_dto/NEWTicketDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/ticket_dto/NEWTicketDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/ticket_dto/UpdateTicketDTOin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/ticket_dto/UpdateTicketDTOin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/ticket_dto/getTicketDTOout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/ticket_dto/getTicketDTOout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/user_dto/AddUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/user_dto/AddUserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/user_dto/LoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/user_dto/LoginDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/user_dto/PasswordChangeDTOin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/user_dto/PasswordChangeDTOin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/user_dto/getAllUsersDTOout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/payloads/user_dto/getAllUsersDTOout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/repository/CommentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/repository/DepartmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/repository/DepartmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/repository/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/repository/TicketRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/service/AdminService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/service/DepartmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/service/RoleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/service/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/service/TicketService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/service/authorization_service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/service/authorization_service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/serviceImplementation/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/serviceImplementation/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/serviceImplementation/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/serviceImplementation/DepartmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/serviceImplementation/TicketServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/serviceImplementation/TicketServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/feedback/serviceImplementation/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/feedback/serviceImplementation/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/controller/DepartmentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/controller/DepartmentControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/controller/TicketControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/controller/TicketControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/controller/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/custom_exception/Handler/ControllerExceptionHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/custom_exception/Handler/ControllerExceptionHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/custom_exception/UserNotFoundExceptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/custom_exception/UserNotFoundExceptionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/entities/EStatusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/entities/EStatusTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/entities/TicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/entities/TicketTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/payloads/ticket_dto/GetTicketDTOinTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/payloads/ticket_dto/GetTicketDTOinTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/payloads/ticket_dto/GetTicketDTOoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/payloads/ticket_dto/GetTicketDTOoutTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/payloads/ticket_dto/NewTicketDTOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/payloads/ticket_dto/NewTicketDTOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/payloads/ticket_dto/testUpdateTicketDTOin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/payloads/ticket_dto/testUpdateTicketDTOin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/serviceImplementation/TicketServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/serviceImplementation/TicketServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/feedback/serviceImplementation/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/feedback/serviceImplementation/UserServiceImplTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\jagat\Downloads\New folder\Grivence Mgt System BackEnd\GrievanceManagementSystem\htmlReport" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Ue1tGThKfLLfD3ZvVnidvsmEQU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jagat/Downloads/New folder/Grivence Mgt System BackEnd/GrievanceManagementSystem&quot;
+  }
+}</component>
+  <component name="RunManager" selected="JUnit.All in GrievanceManagementSystem">
+    <configuration name="All in GrievanceManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GrievanceManagementSystem" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in GrievanceManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GrievanceManagementSystem" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in GrievanceManagementSystem" />
+        <item itemvalue="JUnit.java in GrievanceManagementSystem" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="af7bf3c1-06df-483f-9783-4060154cce2c" name="Changes" comment="" />
+      <created>1693285445035</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1693285445035</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/GrievanceManagementSystem$All_in_GrievanceManagementSystem.ic" NAME="All in GrievanceManagementSystem Coverage Results" MODIFIED="1693287659213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/GrievanceManagementSystem$java_in_GrievanceManagementSystem.ic" NAME="java in GrievanceManagementSystem Coverage Results" MODIFIED="1693285490406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

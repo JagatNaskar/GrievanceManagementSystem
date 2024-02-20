@@ -1,0 +1,178 @@
+.updateDeptMainDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(33, 31, 36, 0.295);
+  padding-top: 3%;
+  padding-left: 1.5%;
+}
+
+.changeStatus-input{
+background-color: #ffffff;
+font-style: italic;
+color: #0f0925;
+}
+
+.tickets-container {
+  margin-left: 15%;
+  display: flex;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  background-color: #a1a2a7;
+  width: 97vw;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: rgb(145, 145, 146);
+}
+
+.main-div {
+  display: flex;
+}
+
+.div1 {
+  margin-bottom: 2%;
+  margin-right: 4%;
+  margin-left: 2%;
+  width: 43%;
+}
+
+.comment-box {
+  flex: 1 1;
+  width: 43%;
+  padding: 10px;
+  overflow-y: scroll;
+  height: 78vh;
+  /* margin-top: 29px; */
+  margin-top: 3%;
+  margin-bottom: 5px;
+  
+}
+
+.ticket-form {
+  box-shadow: 1px 1px 6px rgba(0.5, 0, 0, 0.6);
+  border-radius: 25px;
+  padding: 1.2%;
+  flex: 1 1;
+  margin: 2vw;
+  gap: 10px;
+  width: 43%;
+  height: -moz-fit-content;
+  height: fit-content;
+  /* background-color: red; */
+  margin-top: auto;
+  /* height: 66vh; */
+  height: fit-content;
+}
+
+.UT-status {
+  margin-top: 4%;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 8%;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #745d5d83;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  background-color: #fff4d3;
+}
+
+.comment1 {
+  margin-top: 4%;
+  color: #ffffff;
+  padding: 3%;
+  border-radius: 10px;
+  background-color: rgba(24, 35, 54, 0.767);
+  max-height: 150px;
+  overflow: auto;
+}
+.input-comment {
+  border: 1px solid #745d5d83;
+  background-color: white;
+}
+.error {
+  color: #ff0000;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+@media (max-width: 767px) {
+  .tickets-container {
+    max-width: 100%;
+  }
+
+  .ticket-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.Ut-nevigate-back {
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
+  font-style: italic;
+  font-size: smaller;
+  min-width: 25px;
+  /* margin-left: 97%; */
+  height: 20px;
+  background-color: rgba(255, 0, 0, 0);
+  width: 20px;
+  margin: 5px;
+}
+
+.Ut-nevigate-back:hover{
+  background-color: rgb(255, 255, 255);
+}
+
+.UT-h2 {
+  font-family: cursive;
+  text-align: center;
+}
+
+.commentedBy {
+  position: sticky;
+  color: rgb(138, 134, 242);
+  font-size: small;
+  font-style: oblique;
+}
+
+.commentMessage {
+  color: white;
+  font-size: small;
+  font-style: oblique;
+  padding-left: 4%;
+  padding-right: 15%;
+}
+
+.editButton1 {
+  color: white;
+  background-color: #0f0925;
+  margin-bottom: 1%;
+  margin-top: 8px;
+  width: 97%;
+  border: 1px solid black;
+  min-width: 25px;
+}
+.editButton1[disabled] {
+  background-color: rgba(0, 0, 0, 0.066);
+  color: rgb(5, 2, 2);
+  border: 1px solid black;
+}
+
+.UT-input-ticketId:disabled{
+  background-color: rgba(133, 118, 118, 0);
+  margin-left: -1.9%;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border: none;
+  font-size:large;
+}

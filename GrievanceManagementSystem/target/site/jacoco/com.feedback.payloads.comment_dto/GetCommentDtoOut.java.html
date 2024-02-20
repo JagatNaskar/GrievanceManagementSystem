@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GetCommentDtoOut.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.payloads.comment_dto</a> &gt; <span class="el_source">GetCommentDtoOut.java</span></div><h1>GetCommentDtoOut.java</h1><pre class="source lang-java linenums">package com.feedback.payloads.comment_dto;
+
+import java.util.Objects;
+
+/**
+ * GetCommentDtoOut class.
+ */
+public class GetCommentDtoOut {
+
+  /**
+   * commentedByUser variable.
+   */
+  private String commentedByUser;
+
+  /**
+   * commentMessage variable.
+   */
+  private String commentMessage;
+
+  /**
+   * commentId variable.
+   */
+  private int commentId;
+
+  /**
+  * getCommentedByUser.
+  *
+  * @return commentedByUser
+ */
+  public String getCommentedByUser() {
+<span class="fc" id="L31">    return commentedByUser;</span>
+  }
+
+  /**
+   * setCommentedByUser.
+   *
+   * @param commentedByUserr
+   *
+   */
+  public void setCommentedByUser(final String commentedByUserr) {
+<span class="fc" id="L41">    this.commentedByUser = commentedByUserr;</span>
+<span class="fc" id="L42">  }</span>
+
+  /**
+   * getCommentMessage.
+   *
+   * @return commentMessage
+   */
+  public String getCommentMessage() {
+<span class="fc" id="L50">    return commentMessage;</span>
+  }
+
+  /**
+   * setCommentMessage.
+   *
+   * @param commentMessagee
+   *
+   */
+  public void setCommentMessage(final String commentMessagee) {
+<span class="fc" id="L60">    this.commentMessage = commentMessagee;</span>
+<span class="fc" id="L61">  }</span>
+
+  /**
+   * getCommentId.
+   *
+   * @return commentMessage
+   */
+  public int getCommentId() {
+<span class="fc" id="L69">    return commentId;</span>
+  }
+
+  /**
+   * setCommentId.
+   *
+   * @param commentIdd
+   *
+   */
+  public void setCommentId(final int commentIdd) {
+<span class="fc" id="L79">    this.commentId = commentIdd;</span>
+<span class="fc" id="L80">  }</span>
+
+  /**
+   * toString method.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L87">    return &quot;GetCommentDtoOut [commentedByUser=&quot; + commentedByUser</span>
+      + &quot;, commentMessage=&quot; + commentMessage
+      + &quot;, commentId=&quot; + commentId + &quot;]&quot;;
+  }
+
+  /**
+   * hashCode method.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L97">    return Objects.hash(commentId, commentMessage, commentedByUser);</span>
+  }
+
+  /**
+   * object equals.
+   */
+  @Override
+  public boolean equals(final Object obj) {
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">    if (this == obj) {</span>
+<span class="nc" id="L106">      return true;</span>
+    }
+<span class="fc bfc" id="L108" title="All 2 branches covered.">    if (obj == null) {</span>
+<span class="fc" id="L109">      return false;</span>
+    }
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">    if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L112">      return false;</span>
+    }
+<span class="fc" id="L114">    GetCommentDtoOut other = (GetCommentDtoOut) obj;</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">    return commentId == other.commentId</span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">            &amp;&amp; Objects.equals(commentMessage, other.commentMessage)</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">            &amp;&amp; Objects.equals(commentedByUser, other.commentedByUser);</span>
+  }
+
+  /**
+   * Constructor with parameters.
+   *
+   * @param commentedByUserr
+   *
+   * @param commentMessagee
+   *
+   * @param commentIdd
+   *
+   */
+  public GetCommentDtoOut(final String commentedByUserr,
+          final String commentMessagee,
+          final int commentIdd) {
+<span class="fc" id="L133">    super();</span>
+<span class="fc" id="L134">    this.commentedByUser = commentedByUserr;</span>
+<span class="fc" id="L135">    this.commentMessage = commentMessagee;</span>
+<span class="fc" id="L136">    this.commentId = commentIdd;</span>
+<span class="fc" id="L137">  }</span>
+
+  /**
+   * Default constructor.
+   */
+  public GetCommentDtoOut() {
+<span class="fc" id="L143">    super();</span>
+<span class="fc" id="L144">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

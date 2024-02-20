@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthenticationServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.serviceImplementation</a> &gt; <span class="el_source">AuthenticationServiceImpl.java</span></div><h1>AuthenticationServiceImpl.java</h1><pre class="source lang-java linenums">package com.feedback.serviceImplementation;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import com.feedback.entities.User;
+import com.feedback.repository.UserRepository;
+import com.feedback.service.AuthorizationService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
+
+/**
+ * AuthenticationService class.
+ */
+@Service
+<span class="fc" id="L15">public class AuthenticationServiceImpl implements AuthorizationService {</span>
+
+  /**
+   * UserRepository object.
+   */
+  @Autowired
+  private UserRepository userRepository;
+
+  /**
+   * Logger initialization.
+   */
+<span class="fc" id="L26">  private static final Logger LOGGER = LogManager</span>
+<span class="fc" id="L27">        .getLogger(AuthenticationServiceImpl.class);</span>
+
+  /**
+   * Authenticates an admin user.
+   *
+   * @param username The admin user's userName.
+   *
+   * @param password The admin user's password.
+   *
+   * @return True if authentication is successful, otherwise false.
+   */
+  @Override
+  public boolean authenticateAdmin(
+      final String username, final String password) {
+<span class="fc bfc" id="L41" title="All 2 branches covered.">    if (userRepository.existsByUserName(username)) {</span>
+<span class="fc" id="L42">      User user = userRepository.getUserByUsername(username);</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">      if (password.equals(user.getPassword())</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">              &amp;&amp; user.getUserType().toString().equals(&quot;admin&quot;)) {</span>
+<span class="fc" id="L45">          LOGGER.info(&quot;Authorised = &quot; + true);</span>
+<span class="fc" id="L46">          return true;</span>
+      }
+    }
+<span class="fc" id="L49">    LOGGER.info(&quot;Authorised = &quot; + false);</span>
+<span class="fc" id="L50">    return false;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

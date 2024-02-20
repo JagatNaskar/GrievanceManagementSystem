@@ -1,0 +1,72 @@
+2024-01-05 11:34:48,870 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] Starting GrievanceManagementSystemApplication using Java 1.8.0_391 on Jagats-MacBook-Air.local with PID 4545 (/Users/jagatnasakar/Desktop/Projecttt/GrievanceManagementSystem/target/classes started by jagatnasakar in /Users/jagatnasakar/Desktop/Projecttt/GrievanceManagementSystem) 
+2024-01-05 11:34:48,874 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] No active profile set, falling back to 1 default profile: "default" 
+2024-01-05 11:34:48,925 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2024-01-05 11:34:48,925 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2024-01-05 11:34:49,460 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode 
+2024-01-05 11:34:49,461 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data R2DBC repositories in DEFAULT mode. 
+2024-01-05 11:34:49,484 [INFO] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data R2DBC - Could not safely identify store assignment for repository candidate interface com.feedback.repository.CommentRepository; If you want this repository to be a R2DBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table (preferred), or consider extending one of the following types with your repository: org.springframework.data.r2dbc.repository.R2dbcRepository 
+2024-01-05 11:34:49,485 [INFO] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data R2DBC - Could not safely identify store assignment for repository candidate interface com.feedback.repository.DepartmentRepository; If you want this repository to be a R2DBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table (preferred), or consider extending one of the following types with your repository: org.springframework.data.r2dbc.repository.R2dbcRepository 
+2024-01-05 11:34:49,487 [INFO] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data R2DBC - Could not safely identify store assignment for repository candidate interface com.feedback.repository.TicketRepository; If you want this repository to be a R2DBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table (preferred), or consider extending one of the following types with your repository: org.springframework.data.r2dbc.repository.R2dbcRepository 
+2024-01-05 11:34:49,488 [INFO] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data R2DBC - Could not safely identify store assignment for repository candidate interface com.feedback.repository.UserRepository; If you want this repository to be a R2DBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table (preferred), or consider extending one of the following types with your repository: org.springframework.data.r2dbc.repository.R2dbcRepository 
+2024-01-05 11:34:49,488 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 23 ms. Found 0 R2DBC repository interfaces. 
+2024-01-05 11:34:50,056 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http) 
+2024-01-05 11:34:50,063 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat] 
+2024-01-05 11:34:50,063 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.78] 
+2024-01-05 11:34:50,109 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext 
+2024-01-05 11:34:50,109 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1183 ms 
+2024-01-05 11:34:50,153 [WARN] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'departmentController' defined in file [/Users/jagatnasakar/Desktop/Projecttt/GrievanceManagementSystem/target/classes/com/feedback/controller/DepartmentController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'departmentServiceImpl': Unsatisfied dependency expressed through field 'departmentRepository'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.feedback.repository.DepartmentRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)} 
+2024-01-05 11:34:50,155 [INFO] org.apache.catalina.core.StandardService [restartedMain] Stopping service [Tomcat] 
+2024-01-05 11:34:50,171 [INFO] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. 
+2024-01-05 11:34:50,185 [ERROR] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [restartedMain] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field departmentRepository in com.feedback.serviceImplementation.DepartmentServiceImpl required a bean of type 'com.feedback.repository.DepartmentRepository' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.feedback.repository.DepartmentRepository' in your configuration.
+ 
+2024-01-05 11:38:19,503 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] Starting GrievanceManagementSystemApplication using Java 1.8.0_391 on Jagats-MacBook-Air.local with PID 4580 (/Users/jagatnasakar/Desktop/Projecttt/GrievanceManagementSystem/target/classes started by jagatnasakar in /Users/jagatnasakar/Desktop/Projecttt/GrievanceManagementSystem) 
+2024-01-05 11:38:19,504 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] No active profile set, falling back to 1 default profile: "default" 
+2024-01-05 11:38:19,532 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2024-01-05 11:38:19,532 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2024-01-05 11:38:19,925 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode 
+2024-01-05 11:38:19,926 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data R2DBC repositories in DEFAULT mode. 
+2024-01-05 11:38:19,944 [INFO] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data R2DBC - Could not safely identify store assignment for repository candidate interface com.feedback.repository.CommentRepository; If you want this repository to be a R2DBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table (preferred), or consider extending one of the following types with your repository: org.springframework.data.r2dbc.repository.R2dbcRepository 
+2024-01-05 11:38:19,945 [INFO] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data R2DBC - Could not safely identify store assignment for repository candidate interface com.feedback.repository.DepartmentRepository; If you want this repository to be a R2DBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table (preferred), or consider extending one of the following types with your repository: org.springframework.data.r2dbc.repository.R2dbcRepository 
+2024-01-05 11:38:19,946 [INFO] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data R2DBC - Could not safely identify store assignment for repository candidate interface com.feedback.repository.TicketRepository; If you want this repository to be a R2DBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table (preferred), or consider extending one of the following types with your repository: org.springframework.data.r2dbc.repository.R2dbcRepository 
+2024-01-05 11:38:19,947 [INFO] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data R2DBC - Could not safely identify store assignment for repository candidate interface com.feedback.repository.UserRepository; If you want this repository to be a R2DBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table (preferred), or consider extending one of the following types with your repository: org.springframework.data.r2dbc.repository.R2dbcRepository 
+2024-01-05 11:38:19,948 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 18 ms. Found 0 R2DBC repository interfaces. 
+2024-01-05 11:38:20,418 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http) 
+2024-01-05 11:38:20,425 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat] 
+2024-01-05 11:38:20,425 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.78] 
+2024-01-05 11:38:20,461 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext 
+2024-01-05 11:38:20,462 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 929 ms 
+2024-01-05 11:38:20,501 [WARN] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'departmentController' defined in file [/Users/jagatnasakar/Desktop/Projecttt/GrievanceManagementSystem/target/classes/com/feedback/controller/DepartmentController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'departmentServiceImpl': Unsatisfied dependency expressed through field 'departmentRepository'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.feedback.repository.DepartmentRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)} 
+2024-01-05 11:38:20,503 [INFO] org.apache.catalina.core.StandardService [restartedMain] Stopping service [Tomcat] 
+2024-01-05 11:38:20,516 [INFO] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. 
+2024-01-05 11:38:20,530 [ERROR] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [restartedMain] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field departmentRepository in com.feedback.serviceImplementation.DepartmentServiceImpl required a bean of type 'com.feedback.repository.DepartmentRepository' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.feedback.repository.DepartmentRepository' in your configuration.
+ 

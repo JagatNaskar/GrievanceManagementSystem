@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UpdateTicketDtoIn.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.payloads.ticket_dto</a> &gt; <span class="el_source">UpdateTicketDtoIn.java</span></div><h1>UpdateTicketDtoIn.java</h1><pre class="source lang-java linenums">package com.feedback.payloads.ticket_dto;
+
+import java.util.Objects;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import com.feedback.entities.Estatus;
+
+/**
+ * DTO class for updating a ticket.
+ */
+public class UpdateTicketDtoIn {
+  /**
+  * The ID of the ticket.
+  */
+  @NotNull(message = &quot;Ticket id is required&quot;)
+  private long ticketId;
+
+  /**
+  * The status of the ticket.
+  */
+  private Estatus ticketStatus;
+
+  /**
+   * UserName variable.
+   */
+  private String userName;
+
+  /**
+  * The comment for the ticket.
+  */
+  @NotEmpty(message = &quot;comment is required&quot;)
+  private String commentMessage;
+
+  /**
+  * Getter for ticket ID.
+  *
+  * @return The ticket ID.
+  */
+  public long getTicketId() {
+<span class="fc" id="L41">    return ticketId;</span>
+  }
+
+  /**
+  * Setter for ticket ID.
+  *
+  * @param ticketIdd The ticket ID to be set.
+  */
+  public void setTicketId(final long ticketIdd) {
+<span class="fc" id="L50">    this.ticketId = ticketIdd;</span>
+<span class="fc" id="L51">  }</span>
+
+  /**
+  * Getter for ticket status.
+  *
+  * @return ticketStatus
+  */
+  public Estatus getTicketStatus() {
+<span class="fc" id="L59">    return ticketStatus;</span>
+  }
+
+  /**
+  * Setter for ticket status.
+  *
+  * @param ticketStatuss
+  *
+  */
+  public void setTicketStatus(final Estatus ticketStatuss) {
+<span class="fc" id="L69">    this.ticketStatus = ticketStatuss;</span>
+<span class="fc" id="L70">  }</span>
+
+  /**
+  * Getter for commentMessage.
+  *
+  * @return The commentMessage.
+  */
+  public String getCommentMessage() {
+<span class="fc" id="L78">    return commentMessage;</span>
+  }
+
+  /**
+  * Setter for commentMessage.
+  *
+  * @param commentMessagee
+  *
+  */
+  public void setcommentMessageList(final String commentMessagee) {
+<span class="fc" id="L88">    this.commentMessage = commentMessagee;</span>
+<span class="fc" id="L89">  }</span>
+
+  /**
+   * get userName.
+  * @return the userName.
+  *
+  */
+
+  public String getUserName() {
+<span class="fc" id="L98">    return userName;</span>
+  }
+
+  /**
+  * set UserName.
+  *
+  * @param userNamee the userName to set
+  *
+  */
+  public void setUserName(String userNamee) {
+<span class="fc" id="L108">    this.userName = userNamee;</span>
+<span class="fc" id="L109">  }</span>
+
+  /**
+  * setcommentMessage.
+  *
+  * @param commentMessagee the comment to set
+-  *
+  */
+  public void setComment(String commentMessagee) {
+<span class="fc" id="L118">    this.commentMessage = commentMessagee;</span>
+<span class="fc" id="L119">  }</span>
+
+/**
+  * Override of toString method.
+  */
+  @Override
+  public String toString() {
+<span class="fc" id="L126">    return &quot;UpdateTicketDtoIn [ticketId=&quot; + ticketId</span>
+          + &quot;, ticketStatus=&quot; + ticketStatus
+          + &quot;, userName=&quot; + userName
+          + &quot;, commentMessage=&quot; + commentMessage
+          + &quot;]&quot;;
+  }
+
+  /**
+   * hashCode method.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L138">    return Objects.hash(commentMessage, ticketId, ticketStatus, userName);</span>
+  }
+
+  /**
+   * equals method.
+   */
+  @Override
+  public boolean equals(Object obj) {
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">    if (this == obj) {</span>
+<span class="nc" id="L147">        return true;</span>
+        }
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">    if (obj == null) {</span>
+<span class="nc" id="L150">        return false;</span>
+        }
+<span class="fc bfc" id="L152" title="All 2 branches covered.">    if (getClass() != obj.getClass()) {</span>
+<span class="fc" id="L153">        return false;</span>
+        }
+<span class="fc" id="L155">    UpdateTicketDtoIn other = (UpdateTicketDtoIn) obj;</span>
+<span class="fc bfc" id="L156" title="All 6 branches covered.">    return Objects.equals(commentMessage, other.commentMessage) &amp;&amp; ticketId == other.ticketId</span>
+            &amp;&amp; ticketStatus == other.ticketStatus
+<span class="pc bpc" id="L158" title="1 of 2 branches missed.">            &amp;&amp; Objects.equals(userName, other.userName);</span>
+  }
+
+  /**
+   * UpdateTicketDtoIn field constructor.
+   *
+   * @param ticketIdd
+   *
+   * @param ticketStatuss
+   *
+   * @param userNamee
+   *
+   * @param commentMessagee
+   *
+   */
+  public UpdateTicketDtoIn(
+        @NotNull(message = &quot;Ticket id is required&quot;) long ticketIdd,
+        Estatus ticketStatuss, String userNamee,
+        @NotEmpty(message = &quot;comment is required&quot;) String commentMessagee) {
+<span class="fc" id="L177">    super();</span>
+<span class="fc" id="L178">    this.ticketId = ticketIdd;</span>
+<span class="fc" id="L179">    this.ticketStatus = ticketStatuss;</span>
+<span class="fc" id="L180">    this.userName = userNamee;</span>
+<span class="fc" id="L181">    this.commentMessage = commentMessagee;</span>
+<span class="fc" id="L182">  }</span>
+
+  /**
+   * UpdateTicketDtoIn constructor.
+   */
+  public UpdateTicketDtoIn() {
+<span class="fc" id="L188">    super();</span>
+    //TODO Auto-generated constructor stub
+<span class="fc" id="L190">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

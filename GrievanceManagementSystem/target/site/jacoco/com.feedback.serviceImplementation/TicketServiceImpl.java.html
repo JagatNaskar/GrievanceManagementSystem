@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TicketServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.serviceImplementation</a> &gt; <span class="el_source">TicketServiceImpl.java</span></div><h1>TicketServiceImpl.java</h1><pre class="source lang-java linenums">package com.feedback.serviceImplementation;
+
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.feedback.custom_exception.TicketNotFoundException;
+import com.feedback.custom_exception.UserNotFoundException;
+import com.feedback.entities.Comment;
+import com.feedback.entities.Department;
+import com.feedback.entities.Estatus;
+import com.feedback.entities.Ticket;
+import com.feedback.entities.User;
+import com.feedback.mapper.EstatusConverter;
+import com.feedback.payloads.comment_dto.GetCommentDtoOut;
+import com.feedback.payloads.ticket_dto.GetTicketsDtoIn;
+import com.feedback.payloads.ticket_dto.TicketDto;
+import com.feedback.payloads.ticket_dto.UpdateTicketDtoIn;
+import com.feedback.payloads.ticket_dto.GetTicketDtoOut;
+import com.feedback.repository.DepartmentRepository;
+import com.feedback.repository.TicketRepository;
+import com.feedback.repository.UserRepository;
+import com.feedback.service.TicketService;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+/**
+ * TicketServiceImpl class.
+ */
+@Service
+<span class="fc" id="L43">public class TicketServiceImpl implements TicketService {</span>
+
+  /**
+   * TicketRepository object.
+   */
+  @Autowired
+  private TicketRepository ticketRepository;
+
+  /**
+   * DepartmentRepository object.
+   */
+  @Autowired
+  private DepartmentRepository departmentRepository;
+
+  /**
+   * UserRepository object.
+   */
+  @Autowired
+  private UserRepository userRepository;
+
+  /**
+   * Logger initialization.
+   */
+<span class="fc" id="L66">  private static final Logger LOGGER = LogManager</span>
+<span class="fc" id="L67">          .getLogger(TicketServiceImpl.class);</span>
+
+  //@Autowired
+//  private CommentRepository commentRepository;
+
+  /**
+   * saving a new ticket.
+   *
+   * @param ticket
+   *
+   * @return saved ticket.
+   */
+  @Override
+  public Ticket saveTicket(final TicketDto ticket) {
+<span class="fc" id="L81">    LocalDateTime currentDateTime = LocalDateTime.now();</span>
+<span class="fc" id="L82">    Ticket newTicket = new Ticket();</span>
+<span class="fc" id="L83">    newTicket.setTicketCreationTime(currentDateTime);</span>
+<span class="fc" id="L84">    newTicket.setLastUpdatedTime(currentDateTime);</span>
+<span class="fc" id="L85">    newTicket.setTicketTitle(ticket.getTicketTitle());</span>
+<span class="fc" id="L86">    newTicket.setTicketType(ticket.getTicketType());</span>
+<span class="fc" id="L87">    newTicket.setTicketStatus(ticket.getTicketStatus());</span>
+<span class="fc" id="L88">    newTicket.setTicketDescription(ticket.getTicketDescription());</span>
+<span class="fc" id="L89">    newTicket.setDepartment(departmentRepository</span>
+<span class="fc" id="L90">        .findByDeptName(ticket.getDeptName()));</span>
+<span class="fc" id="L91">    byte[] decodedBytes = Base64.getDecoder()</span>
+<span class="fc" id="L92">        .decode(ticket.getSenderEmail());</span>
+<span class="fc" id="L93">    String decodedEmail = new String(decodedBytes, StandardCharsets.UTF_8);</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">    if (userRepository.existsByUserName(decodedEmail)) {</span>
+<span class="fc" id="L95">      newTicket.setUser(userRepository</span>
+<span class="fc" id="L96">          .getUserByUsername(decodedEmail));</span>
+<span class="fc" id="L97">      newTicket.setTicketAssignedBy(newTicket.getUser().getName());</span>
+    } else {
+<span class="nc" id="L99">      LOGGER.error(&quot;Ticket not found.&quot;);</span>
+<span class="nc" id="L100">      throw new UserNotFoundException(ticket.getSenderEmail());</span>
+    }
+<span class="fc" id="L102">    LOGGER.info(&quot;Saved Ticket successful.&quot;);</span>
+<span class="fc" id="L103">    return ticketRepository.save(newTicket);</span>
+  }
+
+  /**
+   * getting list of ticket.
+   *
+   * @param getTicketsDTOin
+   *
+   * @return list of ticket.
+   */
+  @Override
+  public List&lt;GetTicketDtoOut&gt; getTickets(
+      final GetTicketsDtoIn getTicketsDTOin) {
+<span class="fc" id="L116">    final int noOfElementInPage = 5;</span>
+<span class="fc" id="L117">    boolean isDepartmentBased = false;</span>
+<span class="fc" id="L118">    boolean isAssignByOwn = false;</span>
+<span class="fc" id="L119">    Estatus filterStatus = null;</span>
+<span class="pc bpc" id="L120" title="1 of 2 branches missed.">    if (getTicketsDTOin.getFilterStatus() != null</span>
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">            &amp;&amp; !getTicketsDTOin.getFilterStatus().isEmpty()</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">            &amp;&amp; !getTicketsDTOin.getFilterStatus().equals(&quot;Select status&quot;)) {</span>
+<span class="nc" id="L123">            filterStatus = EstatusConverter</span>
+<span class="nc" id="L124">                .convertStringToEStatus(getTicketsDTOin.getFilterStatus());</span>
+        }
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">    if (getTicketsDTOin.getAssignByOwn().equals(&quot;true&quot;)) {</span>
+<span class="nc" id="L127">      isAssignByOwn = true;</span>
+    }
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">    if (getTicketsDTOin.getDepartmentBased().equals(&quot;true&quot;)) {</span>
+<span class="nc" id="L130">      isDepartmentBased = true;</span>
+    }
+<span class="fc" id="L132">    String decodedSenderEmail = new String(Base64.getDecoder()</span>
+<span class="fc" id="L133">            .decode(getTicketsDTOin.getEmail()), StandardCharsets.UTF_8);</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">    if (userRepository.existsByUserName(decodedSenderEmail)) {</span>
+<span class="fc" id="L135">      User user = userRepository.getUserByUsername(decodedSenderEmail);</span>
+<span class="fc" id="L136">      Pageable pageable = PageRequest</span>
+<span class="fc" id="L137">            .of(getTicketsDTOin.getPageNumber(), noOfElementInPage);</span>
+<span class="fc" id="L138">      List&lt;Ticket&gt; outPutlist = null;</span>
+<span class="fc" id="L139">      int departId = user.getDepartment().getDeptId();</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">      if (isDepartmentBased) {</span>
+<span class="nc" id="L141">        Department newDepartment = departmentRepository</span>
+<span class="nc" id="L142">            .findById(departId).get();</span>
+<span class="nc" id="L143">        Page&lt;Ticket&gt; pageList  = ticketRepository</span>
+<span class="nc" id="L144">            .findByDepartment(newDepartment, pageable);</span>
+<span class="nc" id="L145">        outPutlist = pageList.getContent();</span>
+<span class="nc bnc" id="L146" title="All 2 branches missed.">        if (filterStatus != null) {</span>
+<span class="nc" id="L147">          Page&lt;Ticket&gt; pageList1 = ticketRepository</span>
+<span class="nc" id="L148">              .findByDepartmentAndStatus(newDepartment, filterStatus, pageable);</span>
+<span class="nc" id="L149">          outPutlist = pageList1.getContent();</span>
+        }
+<span class="pc bpc" id="L151" title="1 of 2 branches missed.">      } else if (isAssignByOwn) {</span>
+<span class="nc" id="L152">        Page&lt;Ticket&gt;  pageList2 = ticketRepository</span>
+<span class="nc" id="L153">            .findByUser(user, pageable);</span>
+<span class="nc" id="L154">        outPutlist = pageList2.getContent();</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">        if (filterStatus != null) {</span>
+<span class="nc" id="L156">          Page&lt;Ticket&gt; pageList3 = ticketRepository</span>
+<span class="nc" id="L157">              .findByCreatedByAndTicketStatus(user, filterStatus, pageable);</span>
+<span class="nc" id="L158">          outPutlist = pageList3.getContent();</span>
+        }
+<span class="pc bpc" id="L160" title="1 of 2 branches missed.">      } else if (user.getUserType().toString().equals(&quot;admin&quot;)) {</span>
+<span class="fc" id="L161">        Page&lt;Ticket&gt; pageList4 = ticketRepository.findAll(pageable);</span>
+<span class="fc" id="L162">        outPutlist = pageList4.getContent();</span>
+<span class="pc bpc" id="L163" title="1 of 2 branches missed.">        if (filterStatus != null) {</span>
+<span class="nc" id="L164">          Page&lt;Ticket&gt; pageList5 = ticketRepository</span>
+<span class="nc" id="L165">              .findByTicketStatus(filterStatus, pageable);</span>
+<span class="nc" id="L166">          outPutlist = pageList5.getContent();</span>
+        }
+      }
+<span class="pc bpc" id="L169" title="1 of 2 branches missed.">      if (outPutlist == null) {</span>
+<span class="nc" id="L170">        LOGGER.error(&quot;Ticket not found.&quot;);</span>
+<span class="nc" id="L171">        throw new TicketNotFoundException(&quot;Ticket not found.&quot;);</span>
+      }
+<span class="fc" id="L173">      List&lt;GetTicketDtoOut&gt; outPutList = outPutlist.stream()</span>
+<span class="fc" id="L174">              .map(this::convertToDTO)</span>
+<span class="fc" id="L175">              .sorted(Comparator.comparing(GetTicketDtoOut::getTicketStatus,</span>
+<span class="fc" id="L176">                  Estatus.getStatusComparator()))</span>
+<span class="fc" id="L177">              .collect(Collectors.toList());</span>
+<span class="fc" id="L178">      LOGGER.info(&quot;Returned list of ticket.&quot;);</span>
+<span class="fc" id="L179">      return outPutList;</span>
+    } else {
+<span class="fc" id="L181">      LOGGER.error(&quot;User not found.&quot;);</span>
+<span class="fc" id="L182">      throw new UserNotFoundException(decodedSenderEmail);</span>
+    }
+  }
+
+  /**
+   * convertToDTO.
+   *
+   * @param ticket
+   *
+   * @return ticket information.
+   */
+  private GetTicketDtoOut convertToDTO(final Ticket ticket) {
+<span class="pc bpc" id="L194" title="1 of 2 branches missed.">    if (ticket == null) {</span>
+<span class="nc" id="L195">      LOGGER.error(&quot;Ticket not found from UI.&quot;);</span>
+<span class="nc" id="L196">      throw new TicketNotFoundException(&quot;No ticket available.&quot;);</span>
+    }
+<span class="fc" id="L198">    GetTicketDtoOut dto = new GetTicketDtoOut();</span>
+<span class="fc" id="L199">    dto.setTicketId(ticket.getTicketId());</span>
+<span class="fc" id="L200">    dto.setTitle(ticket.getTicketTitle());</span>
+<span class="fc" id="L201">    dto.setCreationTime(ticket.getTicketCreationTime());</span>
+<span class="fc" id="L202">    dto.setUpdationTime(ticket.getLastUpdatedTime());</span>
+<span class="fc" id="L203">    dto.setTicketStatus(ticket.getTicketStatus());</span>
+<span class="fc" id="L204">    dto.setTicketType(ticket.getTicketType());</span>
+<span class="fc" id="L205">    dto.setCreatedBy(ticket.getTicketAssignedBy());</span>
+<span class="fc" id="L206">    dto.setDepartmentName(ticket.getDepartment().getDeptName());</span>
+<span class="fc" id="L207">    dto.setComments(null);</span>
+<span class="fc" id="L208">    return dto;</span>
+  }
+
+  /**
+   * updatingTicket.
+   */
+  @Override
+  public Boolean updatingTicket(final UpdateTicketDtoIn updateTicketDtoIn) {
+
+<span class="fc" id="L217">    Estatus newStatus = EstatusConverter.convertStringToEStatus(</span>
+<span class="fc" id="L218">        updateTicketDtoIn.getTicketStatus().toString());</span>
+<span class="pc bpc" id="L219" title="1 of 2 branches missed.">    if (!ticketRepository.existsById(updateTicketDtoIn.getTicketId())) {</span>
+<span class="nc" id="L220">      LOGGER.error(&quot;Ticket not found with id = &quot;</span>
+<span class="nc" id="L221">        + updateTicketDtoIn.getTicketId());</span>
+<span class="nc" id="L222">      throw new TicketNotFoundException((int) updateTicketDtoIn.getTicketId());</span>
+    }
+<span class="fc" id="L224">    Optional&lt;Ticket&gt; ticket = ticketRepository</span>
+<span class="fc" id="L225">        .findById(updateTicketDtoIn.getTicketId());</span>
+<span class="fc" id="L226">    Ticket ticket2 = ticket.get();</span>
+<span class="pc bpc" id="L227" title="1 of 2 branches missed.">    if (newStatus != null) {</span>
+<span class="fc" id="L228">      ticket2.setTicketStatus(newStatus);</span>
+<span class="pc bpc" id="L229" title="1 of 2 branches missed.">      if (newStatus.equals(Estatus.Resolved)</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">          &amp;&amp; updateTicketDtoIn.getCommentMessage().equalsIgnoreCase(&quot;&quot;)) {</span>
+<span class="nc" id="L231">         LOGGER.info(&quot;To resolve add a&quot;</span>
+               + &quot; comment.&quot;);
+<span class="nc" id="L233">        return false;</span>
+      }
+    }
+<span class="fc" id="L236">    LocalDateTime lastUpdateTime = LocalDateTime.now();</span>
+<span class="fc" id="L237">    ticket2.setLastUpdatedTime(lastUpdateTime);</span>
+<span class="pc bpc" id="L238" title="1 of 2 branches missed.">    if (updateTicketDtoIn.getCommentMessage() != null</span>
+<span class="pc bpc" id="L239" title="1 of 2 branches missed.">        &amp;&amp; !updateTicketDtoIn.getCommentMessage().equals(&quot;&quot;)) {</span>
+<span class="nc" id="L240">      ticket2.addComment(updateTicketDtoIn.getCommentMessage());</span>
+    }
+<span class="fc" id="L242">    Comment comment = new Comment();</span>
+<span class="fc" id="L243">    comment.setCommentMessage(updateTicketDtoIn.getCommentMessage());</span>
+<span class="fc" id="L244">    comment.setTicket(ticket2);</span>
+<span class="fc" id="L245">    comment.setUser1(userRepository</span>
+<span class="fc" id="L246">          .getUserByUsername(updateTicketDtoIn.getUserName()));</span>
+<span class="fc" id="L247">    List&lt;Comment&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L248">    list.add(comment);</span>
+<span class="fc" id="L249">    ticket2.setComments(list);</span>
+<span class="fc" id="L250">    ticketRepository.save(ticket2);</span>
+<span class="fc" id="L251">    LOGGER.info(&quot;Ticket updated successfully.&quot;);</span>
+<span class="fc" id="L252">    return true;</span>
+  }
+
+  /**
+   * Get a ticket by its ID.
+   *
+   * @param ticketId The ID of the ticket to retrieve.
+   * @return The ticket information.
+   */
+  @Override
+  public GetTicketDtoOut getByTicketById(final Long ticketId) {
+<span class="fc bfc" id="L263" title="All 2 branches covered.">    if (!ticketRepository.existsById(ticketId)) {</span>
+<span class="fc" id="L264">      LOGGER.info(&quot;Ticket not found in repo with id= &quot;</span>
+        + ticketId);
+<span class="fc" id="L266">      return null;</span>
+    }
+<span class="fc" id="L268">    Optional&lt;Ticket&gt; ticket = ticketRepository.findById(ticketId);</span>
+<span class="fc" id="L269">    GetTicketDtoOut t1 = new GetTicketDtoOut();</span>
+<span class="fc" id="L270">    t1.setTicketId(ticketId);</span>
+<span class="fc" id="L271">    t1.setTitle(ticket.get().getTicketTitle());</span>
+<span class="fc" id="L272">    t1.setCreatedBy(ticket.get().getTicketAssignedBy());</span>
+<span class="fc" id="L273">    t1.setCreationTime(ticket.get().getTicketCreationTime());</span>
+<span class="fc" id="L274">    t1.setUpdationTime(ticket.get().getLastUpdatedTime());</span>
+<span class="fc" id="L275">    t1.setTicketStatus(ticket.get().getTicketStatus());</span>
+<span class="fc" id="L276">    t1.setTicketType(ticket.get().getTicketType());</span>
+<span class="fc" id="L277">    t1.setCreatedBy(ticket.get().getTicketAssignedBy());</span>
+<span class="fc" id="L278">    t1.setDepartmentName(ticket.get().getDepartment().getDeptName());</span>
+<span class="fc" id="L279">    t1.setTicketDescription(ticket.get().getTicketDescription());</span>
+<span class="fc" id="L280">    List&lt;GetCommentDtoOut&gt; dtoList = convertToDTOList(ticket</span>
+<span class="fc" id="L281">        .get()</span>
+<span class="fc" id="L282">        .getComments()</span>
+<span class="fc" id="L283">        .stream()</span>
+<span class="fc" id="L284">        .sorted(Comparator.comparingLong(Comment::getCommentId))</span>
+<span class="fc" id="L285">        .collect(Collectors.toList()));</span>
+
+<span class="fc" id="L287">    t1.setComments(dtoList);</span>
+<span class="fc" id="L288">    LOGGER.info(&quot;Returned ticked successfully.&quot;);</span>
+<span class="fc" id="L289">    return t1;</span>
+  }
+
+  /**
+   * Convert a list of comments to a list of DTOs.
+   *
+   * @param commentList The list of comments to convert.
+   * @return The list of comment DTOs.
+   */
+  public List&lt;GetCommentDtoOut&gt; convertToDTOList(
+      final List&lt;Comment&gt; commentList) {
+<span class="fc" id="L300">    List&lt;GetCommentDtoOut&gt; dtoList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L301" title="All 2 branches covered.">    for (Comment comment : commentList) {</span>
+<span class="fc" id="L302">      GetCommentDtoOut dto = new GetCommentDtoOut();</span>
+<span class="fc" id="L303">      dto.setCommentedByUser(comment.getUser1().getName());</span>
+<span class="fc" id="L304">      dto.setCommentMessage(comment.getCommentMessage());</span>
+<span class="fc" id="L305">      dto.setCommentId(comment.getCommentId());</span>
+<span class="fc" id="L306">      dtoList.add(dto);</span>
+<span class="fc" id="L307">    }</span>
+<span class="fc" id="L308">    return dtoList;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

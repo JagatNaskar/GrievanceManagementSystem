@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommentDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.payloads.comment_dto</a> &gt; <span class="el_source">CommentDto.java</span></div><h1>CommentDto.java</h1><pre class="source lang-java linenums">package com.feedback.payloads.comment_dto;
+
+import com.feedback.entities.Ticket;
+import com.feedback.entities.User;
+
+/**
+ * DTO class for Comment entity.
+ */
+public class CommentDto {
+
+  /**
+   * Identifier for the comment.
+   */
+  private int commentId;
+
+  /**
+   * Message content of the comment.
+   */
+  private String commentMessage;
+
+  /**
+   * User associated with the comment (Many-to-One relationship).
+   */
+  private User user1;
+
+  /**
+   * Ticket associated with the comment.
+   */
+  private Ticket ticket;
+
+  /**
+   * Getter for the associated User.
+   *
+   * @return The associated User.
+   *
+   */
+  public User getUser1() {
+<span class="fc" id="L38">    return user1;</span>
+  }
+
+  /**
+   * Setter for the associated User.
+   *
+   * @param user11
+   *
+   */
+  public void setUser1(final User user11) {
+<span class="fc" id="L48">    this.user1 = user11;</span>
+<span class="fc" id="L49">  }</span>
+
+  /**
+   * Getter for the associated Ticket.
+   *
+   * @return The associated Ticket.
+   */
+  public Ticket getTicket() {
+<span class="fc" id="L57">    return ticket;</span>
+  }
+
+  /**
+   * Setter for the associated Ticket.
+   *
+   * @param tickett
+   *
+   */
+  public void setTicket(final Ticket tickett) {
+<span class="fc" id="L67">    this.ticket = tickett;</span>
+<span class="fc" id="L68">  }</span>
+
+  /**
+   * Getter for the commentId.
+   *
+   * @return commentId
+   */
+  public int getCommentId() {
+<span class="fc" id="L76">    return commentId;</span>
+  }
+
+  /**
+   * Setter for the commentId.
+   *
+   * @param commentIdd
+   *
+   */
+  public void setCommentId(final int commentIdd) {
+<span class="fc" id="L86">    this.commentId = commentIdd;</span>
+<span class="fc" id="L87">  }</span>
+
+  /**
+   * Getter for the commentMessage.
+   *
+   * @return commentMessage.
+   */
+  public String getCommentMessage() {
+<span class="fc" id="L95">    return commentMessage;</span>
+  }
+
+  /**
+   * Setter for the commentMessage.
+   *
+   * @param commentMessagee
+   *
+   */
+  public void setCommentMessage(final String commentMessagee) {
+<span class="fc" id="L105">    this.commentMessage = commentMessagee;</span>
+<span class="fc" id="L106">  }</span>
+
+  /**
+   * Constructor with fields.
+   *
+   * @param commentIdd
+   *
+   * @param commentMessagee
+   *
+   * @param user11
+   *
+   */
+  public CommentDto(final int commentIdd,
+      final String commentMessagee,
+<span class="fc" id="L120">      final User user11) {</span>
+<span class="fc" id="L121">    this.commentId = commentIdd;</span>
+<span class="fc" id="L122">    this.commentMessage = commentMessagee;</span>
+<span class="fc" id="L123">    this.user1 = user11;</span>
+<span class="fc" id="L124">  }</span>
+
+  /**
+   * Default constructor.
+   */
+<span class="fc" id="L129">  public CommentDto() {</span>
+    // Default constructor
+<span class="fc" id="L131">  }</span>
+
+  /**
+   * Constructor with fields including Ticket.
+   *
+   * @param commentIdd
+   *
+   * @param commentMessagee
+   *
+   * @param user11
+   *
+   * @param tickett
+   *
+   */
+  public CommentDto(final int commentIdd,
+          final String commentMessagee,
+          final User user11,
+<span class="fc" id="L148">          final Ticket tickett) {</span>
+<span class="fc" id="L149">    this.commentId = commentIdd;</span>
+<span class="fc" id="L150">    this.commentMessage = commentMessagee;</span>
+<span class="fc" id="L151">    this.user1 = user11;</span>
+<span class="fc" id="L152">    this.ticket = tickett;</span>
+<span class="fc" id="L153">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

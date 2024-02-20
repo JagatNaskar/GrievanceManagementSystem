@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddUserDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.payloads.user_dto</a> &gt; <span class="el_source">AddUserDto.java</span></div><h1>AddUserDto.java</h1><pre class="source lang-java linenums">package com.feedback.payloads.user_dto;
+
+import java.util.Objects;
+
+import javax.validation.constraints.NotEmpty;
+
+import com.feedback.entities.ERole;
+
+/**
+ * DTO class for adding a user.
+ */
+public class AddUserDto {
+  /**
+   * The name of the user.
+   */
+  @NotEmpty
+  private String name;
+
+  /**
+   * The userName of the user.
+   */
+  @NotEmpty
+  private String userName;
+
+  /**
+   * The password of the user.
+   */
+  @NotEmpty
+  private String password;
+
+  /**
+   * The type of the user (e.g., ADMIN, USER, etc.).
+   */
+  private ERole userType;
+
+  /**
+   * The name of the department to which the user belongs.
+   */
+  @NotEmpty
+  private String departmentName;
+
+  /**
+   * Getter for the name of the user.
+   *
+   * @return The name of the user.
+   */
+  public String getName() {
+<span class="fc" id="L48">    return name;</span>
+  }
+
+  /**
+   * Setter for the name of the user.
+   *
+   * @param namee The name of the user to be set.
+   *
+   */
+  public void setName(final String namee) {
+<span class="fc" id="L58">    this.name = namee;</span>
+<span class="fc" id="L59">  }</span>
+
+  /**
+   * Getter for the userName of the user.
+   *
+   * @return The userName of the user.
+   */
+  public String getUserName() {
+<span class="fc" id="L67">    return userName;</span>
+  }
+
+  /**
+   * Setter for the userName of the user.
+   *
+   * @param userNamee The userName of the user to be set.
+   *
+   */
+  public void setUserName(final String userNamee) {
+<span class="fc" id="L77">    this.userName = userNamee;</span>
+<span class="fc" id="L78">  }</span>
+
+  /**
+   * Getter for the password of the user.
+   *
+   * @return The password of the user.
+   */
+  public String getPassword() {
+<span class="fc" id="L86">    return password;</span>
+  }
+
+  /**
+   * Setter for the password of the user.
+   *
+   * @param passwordd The password of the user to be set.
+   *
+   */
+  public void setPassword(final String passwordd) {
+<span class="fc" id="L96">    this.password = passwordd;</span>
+<span class="fc" id="L97">  }</span>
+
+  /**
+   * Getter for the type of the user.
+   *
+   * @return The type of the user.
+   */
+  public ERole getUserType() {
+<span class="fc" id="L105">    return userType;</span>
+  }
+
+  /**
+   * Setter for the type of the user.
+   *
+   * @param userTypee The type of the user to be set.
+   */
+  public void setUserType(final ERole userTypee) {
+<span class="fc" id="L114">    this.userType = userTypee;</span>
+<span class="fc" id="L115">  }</span>
+
+  /**
+   * Getter for the name of the department to which the user belongs.
+   *
+   * @return The name of the department.
+   */
+  public String getDepartmentName() {
+<span class="fc" id="L123">    return departmentName;</span>
+  }
+
+  /**
+   * Setter for the name of the department.
+   *
+   * @param departmentNamee The name of the department.
+   *
+   */
+  public void setDepartmentName(final String departmentNamee) {
+<span class="fc" id="L133">    this.departmentName = departmentNamee;</span>
+<span class="fc" id="L134">  }</span>
+
+  /**
+   * Override of the toString method.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L141">    return &quot;AddUser [name=&quot; + name</span>
+        + &quot;, userName=&quot; + userName
+        + &quot;, password=&quot; + password
+        + &quot;, userType=&quot; + userType
+      + &quot;, department=&quot; + departmentName + &quot;]&quot;;
+  }
+
+  /**
+   * Constructor with parameters.
+   *
+   * @param namee The name of the user.
+   *
+   * @param userNamee The userName of the user.
+   *
+   * @param passwordd The password of the user.
+   *
+   * @param userTypee The type of the user.
+   *
+   * @param departmentNamee The name of the department.
+   *
+   */
+  public AddUserDto(final String namee,
+          final String userNamee,
+          final String passwordd,
+          final ERole userTypee,
+          final String departmentNamee) {
+<span class="fc" id="L167">    super();</span>
+<span class="fc" id="L168">    this.name = namee;</span>
+<span class="fc" id="L169">    this.userName = userNamee;</span>
+<span class="fc" id="L170">    this.password = passwordd;</span>
+<span class="fc" id="L171">    this.userType = userTypee;</span>
+<span class="fc" id="L172">    this.departmentName = departmentNamee;</span>
+<span class="fc" id="L173">  }</span>
+
+  /**
+   * Default constructor.
+   */
+  public AddUserDto() {
+<span class="fc" id="L179">    super();</span>
+<span class="fc" id="L180">  }</span>
+
+  /**
+   * Override of the hashCode method.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L187">    return Objects.hash(departmentName, name, password, userName, userType);</span>
+  }
+
+  /**
+   * Override of the equals method.
+   */
+  @Override
+  public boolean equals(final Object obj) {
+<span class="pc bpc" id="L195" title="1 of 2 branches missed.">    if (this == obj) {</span>
+<span class="nc" id="L196">      return true;</span>
+    }
+<span class="fc bfc" id="L198" title="All 2 branches covered.">    if (obj == null) {</span>
+<span class="fc" id="L199">      return false;</span>
+    }
+<span class="fc bfc" id="L201" title="All 2 branches covered.">    if (getClass() != obj.getClass()) {</span>
+<span class="fc" id="L202">      return false;</span>
+    }
+<span class="fc" id="L204">    AddUserDto other = (AddUserDto) obj;</span>
+<span class="fc bfc" id="L205" title="All 2 branches covered.">    return Objects.equals(departmentName, other.departmentName)</span>
+<span class="pc bpc" id="L206" title="1 of 2 branches missed.">          &amp;&amp; Objects.equals(name, other.name)</span>
+<span class="pc bpc" id="L207" title="1 of 2 branches missed.">          &amp;&amp; Objects.equals(password, other.password)</span>
+<span class="pc bpc" id="L208" title="2 of 4 branches missed.">          &amp;&amp; Objects.equals(userName, other.userName)</span>
+          &amp;&amp; userType == other.userType;
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

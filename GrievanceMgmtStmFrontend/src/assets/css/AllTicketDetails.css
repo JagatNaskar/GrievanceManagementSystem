@@ -1,0 +1,141 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  width: 70vw;
+  /* height: fit-content; */
+  /* min-height: 50vh; */
+  /* height: 50vh; */
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #cccccc;
+}
+
+th {
+  background-color: #514b4b35;
+}
+
+button {
+  padding: 2px 5px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.edit-btn {
+  background-color: #2a312a63;
+  color: black;
+  border: solid 1px black;
+  height: 30px;
+  width: 50px;
+}
+
+button.expand-btn {
+  background-color: #25363650;
+  color: #000000;
+  border: solid 1px black;
+  height: 30px;
+  width: 50px;
+}
+
+.AT-Empty-list {
+  font: italic;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.full-details {
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+  box-shadow: 0px -1px 4px 0px gray;
+}
+
+.full-details .all-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  border-radius: 4%;
+}
+
+.full-details .all-button .statusFilter {
+  margin-left: 5vw;
+  background-color: rgba(34, 34, 37, 0.3);
+  flex: 1;
+  color: #3c0452;
+  margin: 3px;
+}
+
+.paging-btn {
+  background-color: #0f0925;
+  border: 1px solid white;
+  color: white;
+  margin: 2%;
+}
+
+.paging-btn:disabled {
+  background-color: rgba(78, 71, 71, 0.795);
+  color: black;
+  cursor: not-allowed;
+}
+
+.full-details .all-button .AT-allTickets,
+.AT-deptTickets,
+.AT-myTickets {
+  margin: 3px;
+  margin-left: 2vh;
+  margin-right: 3vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* height: 6vh; */
+  color: white;
+  background-color: #2a292e;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  th,
+  td {
+    font-size: 14px;
+  }
+}
+
+button.active {
+  background-color: #e8e8e8;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+.AT-addticket-btn {
+  border: 1px solid white;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #0f0925;
+  color: #ffffff;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20vh;
+}
+
+.Not_Found_Image{
+  width: 60vw;
+  height: 45vh;
+  align-items: center;
+  /* padding-left: 28%; */
+  margin-left: 19.2%;
+}
+
+.ticketrow:hover{
+  background-color: #decfe067;
+}
+

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginDtoIn.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.payloads.user_dto</a> &gt; <span class="el_source">LoginDtoIn.java</span></div><h1>LoginDtoIn.java</h1><pre class="source lang-java linenums">package com.feedback.payloads.user_dto;
+
+import java.util.Objects;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+/**
+ * Data Transfer Object for user login information.
+ */
+public class LoginDtoIn {
+
+  /**
+   * email variable.
+   */
+  @NotEmpty(message = &quot;email is required&quot;)
+  private String email;
+
+  /**
+   * The password associated with the member's account.
+   * Password must be between 5 and 12 characters in length.
+   */
+  @NotEmpty(message = &quot;password is required&quot;)
+  private String password;
+
+  /**
+   * isFirstLogin variable.
+   */
+  private Boolean isFirstLogin;
+
+  /**
+   * get firstLogin.
+   *
+   * @return returns boolean value.
+   */
+  public Boolean getIsFirstLogin() {
+<span class="fc" id="L38">    return isFirstLogin;</span>
+  }
+
+  /**
+   * set first boolean value.
+   *
+   * @param isFirstLoginn
+   *
+   */
+  public void setIsFirstLogin(final Boolean isFirstLoginn) {
+<span class="fc" id="L48">    this.isFirstLogin = isFirstLoginn;</span>
+<span class="fc" id="L49">  }</span>
+
+  /**
+   * get email.
+   *
+   * @return email
+   */
+  public String getEmail() {
+<span class="fc" id="L57">    return email;</span>
+  }
+
+  /**
+   * set email.
+   *
+   * @param emaill
+   *
+   */
+  public void setEmail(final String emaill) {
+<span class="fc" id="L67">    this.email = emaill;</span>
+<span class="fc" id="L68">  }</span>
+
+  /**
+   * get password.
+   *
+   * @return password
+   */
+  public String getPassword() {
+<span class="fc" id="L76">    return password;</span>
+  }
+
+  /**
+   * set password.
+   *
+   * @param passwordd
+   *
+   */
+  public void setPassword(final String passwordd) {
+<span class="fc" id="L86">    this.password = passwordd;</span>
+<span class="fc" id="L87">  }</span>
+
+  /**
+   * Override of toString method.
+   *
+   * @return A string representation of the LoginDto object.
+   *
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L97">    return &quot;LoginDto [email=&quot; + email</span>
+      + &quot;, password=&quot; + password
+      + &quot;]&quot;;
+  }
+
+  /**
+   * Override of hashCode method.
+   *
+   * @return The generated hash code.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L109">    return Objects.hash(email, password);</span>
+  }
+
+  /**
+   * Override of equals method.
+   *
+   * @param obj The object to compare with
+   *
+   * @return True if the objects are equal, otherwise False.
+   */
+  @Override public boolean equals(final Object obj) {
+<span class="fc bfc" id="L120" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L121">      return true;</span>
+    }
+<span class="fc bfc" id="L123" title="All 2 branches covered.">    if (obj == null) {</span>
+<span class="fc" id="L124">      return false;</span>
+    }
+<span class="fc bfc" id="L126" title="All 2 branches covered.">    if (getClass() != obj.getClass()) {</span>
+<span class="fc" id="L127">      return false;</span>
+    }
+<span class="fc" id="L129">    LoginDtoIn other = (LoginDtoIn) obj;</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">    return Objects.equals(email, other.email)</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">      &amp;&amp; Objects.equals(password, other.password);</span>
+  }
+
+  /**
+   * email minimum length.
+   */
+  private static  final int MIN_EMAIL_LENGTH = 16;
+
+  /**
+   * email max length.
+   */
+  private static final int MAX_EMAIL_LENGTH = 35;
+
+  /**
+   * email max length.
+   */
+  private static final int MIN_PASSWORD_LENGTH = 8;
+
+  /**
+   * Constructor for LoginDto with email and password.
+   *
+   * @param emaill The user's emaill.
+   *
+   * @param passwordd The user's password.
+   *
+   */
+  public LoginDtoIn(@Email @Size(min = MIN_EMAIL_LENGTH, max = MAX_EMAIL_LENGTH)
+      @Pattern(regexp = &quot;^[A-Za-z0-9_.-]+@nucleusteq\\.com$&quot;,
+      message = &quot;email format: ...@nucleusteq.com&quot;)
+      final String emaill,
+      @NotEmpty @Size(min = MIN_PASSWORD_LENGTH,
+      message = &quot;Password should be greater than 8 char.&quot;)
+      final String passwordd) {
+<span class="fc" id="L164">    super();</span>
+<span class="fc" id="L165">    this.email = emaill;</span>
+<span class="fc" id="L166">    this.password = passwordd;</span>
+<span class="fc" id="L167">  }</span>
+
+  /**
+   * Default constructor for LoginDto.
+   */
+  public LoginDtoIn() {
+<span class="fc" id="L173">    super();</span>
+<span class="fc" id="L174">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

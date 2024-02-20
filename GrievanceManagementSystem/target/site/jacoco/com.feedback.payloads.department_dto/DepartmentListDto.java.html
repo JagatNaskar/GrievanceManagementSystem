@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DepartmentListDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.payloads.department_dto</a> &gt; <span class="el_source">DepartmentListDto.java</span></div><h1>DepartmentListDto.java</h1><pre class="source lang-java linenums">package com.feedback.payloads.department_dto;
+
+import java.util.Objects;
+
+/**
+ * DepartmentListDTO class.
+ */
+public class DepartmentListDto {
+
+  /**
+   * deptId variable.
+   */
+  private int deptId;
+
+  /**
+   * deptName variable.
+   */
+  private String deptName;
+
+  /**
+   * getDeptId.
+   *
+   * @return deptId
+   */
+  public int getDeptId() {
+<span class="fc" id="L26">    return deptId;</span>
+  }
+
+  /**
+   * setDeptId.
+   *
+   * @param deptIdd
+   *
+   */
+  public void setDeptId(final int deptIdd) {
+<span class="fc" id="L36">    this.deptId = deptIdd;</span>
+<span class="fc" id="L37">  }</span>
+
+  /**
+   * getDeptName.
+   *
+   * @return deptName
+   */
+  public String getDeptName() {
+<span class="fc" id="L45">    return deptName;</span>
+  }
+
+  /**
+   * setDeptName.
+   *
+   * @param deptNamee
+   *
+   */
+  public void setDeptName(final String deptNamee) {
+<span class="fc" id="L55">    this.deptName = deptNamee;</span>
+<span class="fc" id="L56">  }</span>
+
+  /**
+   * toString.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L63">    return &quot;DepartmentListDTO [deptId=&quot; + deptId</span>
+        + &quot;, deptName=&quot; + deptName
+        + &quot;]&quot;;
+  }
+
+  /**
+   * DepartmentListDTO.
+   *
+   * @param l
+   *
+   * @param deptNamee
+   *
+   */
+  public DepartmentListDto(final int l, final String deptNamee) {
+<span class="fc" id="L77">    super();</span>
+<span class="fc" id="L78">    this.deptId = l;</span>
+<span class="fc" id="L79">    this.deptName = deptNamee;</span>
+<span class="fc" id="L80">  }</span>
+
+  /**
+   * DepartmentListDTO.
+   */
+  public DepartmentListDto() {
+<span class="fc" id="L86">    super();</span>
+<span class="fc" id="L87">  }</span>
+
+  /**
+   * hashCode.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L94">    return Objects.hash(deptId, deptName);</span>
+  }
+
+  /**
+   * equals object.
+   */
+  @Override
+  public boolean equals(final Object obj) {
+<span class="fc bfc" id="L102" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L103">      return true;</span>
+    }
+<span class="fc bfc" id="L105" title="All 2 branches covered.">    if (obj == null) {</span>
+<span class="fc" id="L106">      return false;</span>
+    }
+<span class="fc bfc" id="L108" title="All 2 branches covered.">    if (getClass() != obj.getClass()) {</span>
+<span class="fc" id="L109">      return false;</span>
+    }
+<span class="fc" id="L111">    DepartmentListDto other = (DepartmentListDto) obj;</span>
+<span class="pc bpc" id="L112" title="1 of 4 branches missed.">    return deptId == other.deptId &amp;&amp; Objects.equals(deptName, other.deptName);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

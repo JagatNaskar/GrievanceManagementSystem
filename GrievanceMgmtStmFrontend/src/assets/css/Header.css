@@ -1,0 +1,111 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  width: 96.vw;
+  height: 5.9vh;
+}
+.header h1{
+  font-size: 1.5em;
+  margin-left: auto;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.icon {
+  cursor: pointer;
+  margin-left: 2%;
+}
+
+.dropdown {
+  position: absolute;
+  margin-top: 2.4vh;
+  top: 50px;
+  right: 1px;
+  background-color: #333;
+  border: 1px solid #242323;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 16vw;
+  box-shadow: -5px 5px 19px rgba(0, 0, 0, 0.774);
+}
+
+.dropdown ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #323350;
+}
+.H-Logout{
+  /* background-color: red; */
+  color: rgb(182, 31, 31);
+  font-weight: bold;
+}
+.nameOfUser{
+  color: rgb(211, 209, 209);
+  font-style: italic;
+  font-size: smaller;
+  font-weight: 400;
+}
+
+.dropDown-click{
+  margin-right: -12px;
+}
+
+.H-ProfileSection{
+  display: flex;
+  flex-direction: column;
+}
+
+.H-UserName{
+  font-weight: bold;
+}
+
+.H-proifle{
+  margin-left: 21%;
+}
+
+.H-divider{
+  background-color: red;
+  width: 100%;
+  border: 1px solid white;
+  margin-top: 19px;
+}
+
+a:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+}
+
+.projectLogo{
+  width: 4%;
+  height: 95%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.project_icon{
+  width: 100%;
+  /* height: 100%; */
+}
+
+.dropdown-model{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ccccd400;
+  box-shadow: 5%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}

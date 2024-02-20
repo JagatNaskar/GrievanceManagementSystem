@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GetTicketDtoOut.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.payloads.ticket_dto</a> &gt; <span class="el_source">GetTicketDtoOut.java</span></div><h1>GetTicketDtoOut.java</h1><pre class="source lang-java linenums">package com.feedback.payloads.ticket_dto;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
+
+import com.feedback.entities.Estatus;
+import com.feedback.payloads.comment_dto.GetCommentDtoOut;
+
+/**
+ * DTO class for retrieving ticket information.
+ */
+public class GetTicketDtoOut {
+
+  /**
+   * ticketId variable.
+   */
+  private Long ticketId;
+
+  /**
+   * title variable.
+   */
+  private String title;
+
+  /**
+   * creationTime variable.
+   */
+  private LocalDateTime creationTime;
+
+  /**
+   * updationTime variable.
+   */
+  private LocalDateTime updationTime;
+
+  /**
+   * ticketStatus variable.
+   */
+  private Estatus ticketStatus;
+
+  /**
+   * ticketType variable.
+   */
+  private String ticketType;
+
+  /**
+   * createdBy variable.
+   */
+  private String createdBy;
+
+  /**
+   * departmentName variable.
+   */
+  private String departmentName;
+
+  /**
+   * ticketDescription variable.
+   */
+  private String ticketDescription;
+
+  /**
+   * List of GetCommentDtoOut.
+   */
+  private List&lt;GetCommentDtoOut&gt; comments;
+
+  /**
+  * Getter for ticket ID.
+  *
+  * @return ticketId
+  */
+  public Long getTicketId() {
+<span class="fc" id="L71">    return ticketId;</span>
+  }
+
+  /**
+  * Setting for ticket Id.
+  *
+  * @param ticketIdd
+  *
+  */
+  public void setTicketId(final Long ticketIdd) {
+<span class="fc" id="L81">    this.ticketId = ticketIdd;</span>
+<span class="fc" id="L82">  }</span>
+
+  /**
+  * Getter for ticket title.
+  *
+  * @return title of the ticket.
+  */
+  public String getTitle() {
+<span class="fc" id="L90">    return title;</span>
+  }
+
+  /**
+   * setTitle.
+   *
+   * @param titlee
+   *
+   */
+  public void setTitle(final String titlee) {
+<span class="fc" id="L100">    this.title = titlee;</span>
+<span class="fc" id="L101">  }</span>
+
+  /**
+  * Getter for creation time.
+  *
+  * @return creationTime of the ticket.
+  */
+  public LocalDateTime getCreationTime() {
+<span class="fc" id="L109">    return creationTime;</span>
+  }
+
+  /**
+  * Setter for creation time.
+  *
+  * @param creationTimee
+  *
+  */
+  public void setCreationTime(final LocalDateTime creationTimee) {
+<span class="fc" id="L119">    this.creationTime = creationTimee;</span>
+<span class="fc" id="L120">  }</span>
+
+  /**
+  * Getter for updation time.
+  *
+  * @return updationTime of the ticket.
+  */
+  public LocalDateTime getUpdationTime() {
+<span class="fc" id="L128">    return updationTime;</span>
+  }
+
+  /**
+  * Setter for updation time.
+  *
+  * @param updationTimee
+  *
+  */
+  public void setUpdationTime(final LocalDateTime updationTimee) {
+<span class="fc" id="L138">    this.updationTime = updationTimee;</span>
+<span class="fc" id="L139">  }</span>
+
+  /**
+   * getTicketDescription.
+   *
+   * @return ticketDescription.
+   */
+  public String getTicketDescription() {
+<span class="fc" id="L147">    return ticketDescription;</span>
+  }
+
+  /**
+   * setTicketDescription.
+   *
+   * @param ticketDescriptionn
+   *
+   */
+  public void setTicketDescription(final String ticketDescriptionn) {
+<span class="fc" id="L157">    this.ticketDescription = ticketDescriptionn;</span>
+<span class="fc" id="L158">  }</span>
+
+  /**
+  * Getter for ticket status.
+  *
+     * @return ticketStatus of the ticket.
+  */
+  public Estatus getTicketStatus() {
+<span class="fc" id="L166">    return ticketStatus;</span>
+  }
+
+  /**
+  * Setter for ticket status.
+  *
+  * @param eStatuss
+  *
+  */
+  public void setTicketStatus(final Estatus eStatuss) {
+<span class="fc" id="L176">    this.ticketStatus = eStatuss;</span>
+<span class="fc" id="L177">  }</span>
+
+  /**
+  * Getter for ticket type.
+  *
+  * @return ticketType of the ticket.
+  */
+  public String getTicketType() {
+<span class="fc" id="L185">    return ticketType;</span>
+  }
+
+  /**
+  * Setter for ticket type.
+  *
+  * @param ticketTypee
+  *
+  */
+  public void setTicketType(final String ticketTypee) {
+<span class="fc" id="L195">    this.ticketType = ticketTypee;</span>
+<span class="fc" id="L196">  }</span>
+
+  /**
+  * Getter for creator information.
+  *
+  * @return createdBy of the ticket.
+  */
+  public String getCreatedBy() {
+<span class="fc" id="L204">    return createdBy;</span>
+  }
+
+  /**
+  * Setter for creator information.
+  *
+  * @param createdByy
+  *
+  */
+  public void setCreatedBy(final String createdByy) {
+<span class="fc" id="L214">    this.createdBy = createdByy;</span>
+<span class="fc" id="L215">  }</span>
+
+  /**
+  * Getter for department name.
+  *
+  * @return departmentName of the department associated with the ticket.
+  */
+  public String getDepartmentName() {
+<span class="fc" id="L223">    return departmentName;</span>
+  }
+
+  /**
+  * Setter for department name.
+  *
+  * @param departmentNamee of the department associated with the ticket.
+  *
+  */
+  public void setDepartmentName(final String departmentNamee) {
+<span class="fc" id="L233">    this.departmentName = departmentNamee;</span>
+<span class="fc" id="L234">  }</span>
+
+  /**
+  * Getter for comments associated with the ticket.
+  *
+  * @return The list of comments.
+  */
+  public List&lt;GetCommentDtoOut&gt; getComments() {
+<span class="fc" id="L242">    return comments;</span>
+  }
+
+  /**
+  * Setter for comments associated with the ticket.
+  *
+  * @param commentDTOss
+  *
+  */
+  public void setComments(
+      final List&lt;GetCommentDtoOut&gt; commentDTOss) {
+<span class="fc" id="L253">    this.comments = commentDTOss;</span>
+<span class="fc" id="L254">  }</span>
+
+  /**
+  * Constructor with parameters.
+  *
+  * @param ticketIdd The ID of the ticket.
+  *
+  * @param titlee The title of the ticket.
+  *
+  * @param creationTimee The creation time of the ticket.
+  *
+  * @param updationTimee The updation time of the ticket.
+  *
+  * @param ticketStatuss The status of the ticket.
+  *
+  * @param ticketTypee The type of the ticket.
+  *
+  * @param createdByy The creator of the ticket.
+  *
+  * @param ticketDescriptionn
+  *
+  * @param departmentNamee
+  *
+  * @param commentss The list of comments associated with the ticket.
+  *
+  */
+  public GetTicketDtoOut(final Long ticketIdd,
+      final String titlee,
+      final LocalDateTime creationTimee,
+      final LocalDateTime updationTimee,
+      final Estatus ticketStatuss,
+      final String ticketTypee,
+      final String createdByy,
+      final String ticketDescriptionn,
+      final String departmentNamee,
+      final List&lt;GetCommentDtoOut&gt; commentss) {
+<span class="fc" id="L290">    super();</span>
+<span class="fc" id="L291">    this.ticketId = ticketIdd;</span>
+<span class="fc" id="L292">    this.title = titlee;</span>
+<span class="fc" id="L293">    this.creationTime = creationTimee;</span>
+<span class="fc" id="L294">    this.updationTime = updationTimee;</span>
+<span class="fc" id="L295">    this.ticketStatus = ticketStatuss;</span>
+<span class="fc" id="L296">    this.ticketDescription = ticketDescriptionn;</span>
+<span class="fc" id="L297">    this.ticketType = ticketTypee;</span>
+<span class="fc" id="L298">    this.createdBy = createdByy;</span>
+<span class="fc" id="L299">    this.departmentName = departmentNamee;</span>
+<span class="fc" id="L300">    this.comments = commentss;</span>
+<span class="fc" id="L301">  }</span>
+
+  /**
+   * Default constructor.
+   */
+  public GetTicketDtoOut() {
+<span class="fc" id="L307">    super();</span>
+<span class="fc" id="L308">  }</span>
+
+  /**
+   * toString.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L315">      return &quot;GetTicketDtoOut [ticketId=&quot; + ticketId</span>
+          + &quot;, title=&quot; + title
+          + &quot;, creationTime=&quot; + creationTime
+          + &quot;, updationTime=&quot; + updationTime
+          + &quot;, ticketStatus=&quot; + ticketStatus
+          + &quot;, ticketType=&quot; + ticketType
+          + &quot;, createdBy=&quot; + createdBy
+          + &quot;, departmentName=&quot; + departmentName
+          + &quot;, ticketDescription=&quot; + ticketDescription
+          + &quot;, comments=&quot; + comments + &quot;]&quot;;
+  }
+
+    /**
+    * Override of hashCode method.
+    */
+    @Override
+    public int hashCode() {
+<span class="fc" id="L332">      return Objects.hash(comments, createdBy, creationTime,</span>
+        departmentName, ticketDescription, ticketId, ticketStatus,
+        ticketType, title, updationTime);
+    }
+
+  /**
+  * equals method.
+  */
+@Override
+  public boolean equals(final Object obj) {
+<span class="pc bpc" id="L342" title="1 of 2 branches missed.">    if (this == obj) {</span>
+<span class="nc" id="L343">        return true;</span>
+    }
+<span class="pc bpc" id="L345" title="1 of 2 branches missed.">    if (obj == null) {</span>
+<span class="nc" id="L346">        return false;</span>
+    }
+<span class="pc bpc" id="L348" title="1 of 2 branches missed.">    if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L349">        return false;</span>
+    }
+<span class="fc" id="L351">    GetTicketDtoOut other = (GetTicketDtoOut) obj;</span>
+<span class="fc bfc" id="L352" title="All 2 branches covered.">    return Objects.equals(comments, other.comments)</span>
+<span class="pc bpc" id="L353" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(createdBy, other.createdBy)</span>
+<span class="pc bpc" id="L354" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(creationTime, other.creationTime)</span>
+<span class="pc bpc" id="L355" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(departmentName, other.departmentName)</span>
+<span class="pc bpc" id="L356" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(ticketDescription, other.ticketDescription)</span>
+<span class="pc bpc" id="L357" title="2 of 4 branches missed.">        &amp;&amp; Objects.equals(ticketId, other.ticketId)</span>
+        &amp;&amp; ticketStatus == other.ticketStatus
+<span class="pc bpc" id="L359" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(ticketType, other.ticketType)</span>
+<span class="fc bfc" id="L360" title="All 2 branches covered.">        &amp;&amp; Objects.equals(title, other.title)</span>
+<span class="pc bpc" id="L361" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(updationTime, other.updationTime);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

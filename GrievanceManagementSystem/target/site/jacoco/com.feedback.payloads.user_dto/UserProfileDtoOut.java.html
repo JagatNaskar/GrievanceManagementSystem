@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserProfileDtoOut.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.payloads.user_dto</a> &gt; <span class="el_source">UserProfileDtoOut.java</span></div><h1>UserProfileDtoOut.java</h1><pre class="source lang-java linenums">package com.feedback.payloads.user_dto;
+
+import java.util.Objects;
+
+/**
+ * UserProfileDTOout class.
+ */
+public class UserProfileDtoOut {
+
+  /**
+   * name.
+   */
+  private String name;
+
+  /**
+   * userName.
+   */
+  private String userName;
+
+  /**
+   * password.
+   */
+  private String password;
+
+  /**
+   * userType.
+   */
+  private String userType;
+
+  /**
+   * departmentName.
+   */
+  private String departmentName;
+
+  /**
+   * getName of user.
+   *
+   * @return name.
+   */
+  public String getName() {
+<span class="fc" id="L41">    return name;</span>
+  }
+
+  /**
+   * setName of user.
+   *
+   * @param namee
+   *
+   */
+  public void setName(final String namee) {
+<span class="fc" id="L51">    this.name = namee;</span>
+<span class="fc" id="L52">  }</span>
+
+  /**
+   * getUserName of userName.
+   *
+   * @return userName.
+   */
+  public String getUserName() {
+<span class="fc" id="L60">    return userName;</span>
+  }
+
+  /**
+   * setUserName of user.
+   *
+   * @param userNamee
+   *
+   */
+  public void setUserName(final String userNamee) {
+<span class="fc" id="L70">    this.userName = userNamee;</span>
+<span class="fc" id="L71">  }</span>
+
+  /**
+   * getPassword of user.
+   *
+   * @return password.
+   */
+  public String getPassword() {
+<span class="fc" id="L79">    return password;</span>
+  }
+
+  /**
+   * setPassword of user.
+   *
+   * @param passwordd
+   *
+   */
+  public void setPassword(final String passwordd) {
+<span class="fc" id="L89">    this.password = passwordd;</span>
+<span class="fc" id="L90">  }</span>
+
+  /**
+   * getUserType of user.
+   *
+   * @return userType.
+   */
+  public String getUserType() {
+<span class="fc" id="L98">    return userType;</span>
+  }
+
+  /**
+   * setUserType of user.
+   *
+   * @param userTypee
+   *
+   */
+  public void setUserType(final String userTypee) {
+<span class="fc" id="L108">    this.userType = userTypee;</span>
+<span class="fc" id="L109">  }</span>
+
+  /**
+   * getDepartmentName of user.
+   *
+   * @return departmentName.
+   */
+  public String getDepartmentName() {
+<span class="fc" id="L117">    return departmentName;</span>
+  }
+
+  /**
+   * setDepartmentName.
+   *
+   * @param departmentNamee
+   *
+   */
+  public void setDepartmentName(final String departmentNamee) {
+<span class="fc" id="L127">    this.departmentName = departmentNamee;</span>
+<span class="fc" id="L128">  }</span>
+
+  /**
+   * To string method.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L135">    return &quot;UserProfileDTOout [name=&quot; + name</span>
+        + &quot;, userName=&quot; + userName
+        + &quot;, password=&quot; + password
+        + &quot;, userType=&quot; + userType
+        + &quot;, departmentName=&quot; + departmentName + &quot;]&quot;;
+  }
+
+  /**
+   * UserProfileDTOout field constructor.
+   *
+   * @param namee
+   *
+   * @param userNamee
+   *
+   * @param passwordd
+   *
+   * @param userTypee
+   *
+   * @param departmentNamee
+   *
+   */
+  public UserProfileDtoOut(final String namee,
+      final String userNamee,
+      final String passwordd,
+      final String userTypee,
+      final String departmentNamee) {
+<span class="fc" id="L161">    super();</span>
+<span class="fc" id="L162">    this.name = namee;</span>
+<span class="fc" id="L163">    this.userName = userNamee;</span>
+<span class="fc" id="L164">    this.password = passwordd;</span>
+<span class="fc" id="L165">    this.userType = userTypee;</span>
+<span class="fc" id="L166">    this.departmentName = departmentNamee;</span>
+<span class="fc" id="L167">  }</span>
+
+  /**
+   * UserProfileDTOout, no args constructor.
+   */
+  public UserProfileDtoOut() {
+<span class="fc" id="L173">    super();</span>
+<span class="fc" id="L174">  }</span>
+
+  /**
+   * HashCode function.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L181">    return Objects.hash(departmentName, name, password, userName, userType);</span>
+  }
+
+  /**
+   * object equals function.
+   */
+  @Override
+  public boolean equals(final Object obj) {
+<span class="pc bpc" id="L189" title="1 of 2 branches missed.">    if (this == obj) {</span>
+<span class="nc" id="L190">      return true;</span>
+    }
+<span class="pc bpc" id="L192" title="1 of 2 branches missed.">    if (obj == null) {</span>
+<span class="nc" id="L193">      return false;</span>
+    }
+<span class="pc bpc" id="L195" title="1 of 2 branches missed.">    if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L196">      return false;</span>
+    }
+<span class="fc" id="L198">    UserProfileDtoOut other = (UserProfileDtoOut) obj;</span>
+<span class="fc bfc" id="L199" title="All 2 branches covered.">    return Objects.equals(departmentName, other.departmentName)</span>
+<span class="pc bpc" id="L200" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(name, other.name)</span>
+<span class="pc bpc" id="L201" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(password, other.password)</span>
+<span class="pc bpc" id="L202" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(userName, other.userName)</span>
+<span class="pc bpc" id="L203" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(userType, other.userType);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

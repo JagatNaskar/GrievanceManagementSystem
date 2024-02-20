@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Department.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.entities</a> &gt; <span class="el_source">Department.java</span></div><h1>Department.java</h1><pre class="source lang-java linenums">package com.feedback.entities;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+/**
+ * Department class.
+ *
+ * @version 1.0
+ * @author Jagat Naskar
+ */
+
+@Entity
+@Table(name = &quot;Department&quot;)
+public class Department {
+  /**
+   * deptId to store the department id.
+   */
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column
+  private int deptId;
+
+  /**
+   * deptName to store the department name.
+   */
+  @Column
+  private String deptName;
+
+  /**
+   * Mapping Department to User (one to many).
+   */
+<span class="fc" id="L41">  @OneToMany(mappedBy = &quot;department&quot;, cascade = CascadeType.ALL)</span>
+  private List&lt;User&gt; users = new ArrayList&lt;&gt;();
+
+  /**
+   * Mapping Department to Ticket (one to many).
+   */
+<span class="fc" id="L47">  @OneToMany(mappedBy = &quot;assignedDepartment&quot;, cascade = CascadeType.ALL)</span>
+  private List&lt;Ticket&gt; assignedTickets = new ArrayList&lt;&gt;();
+
+  /**
+   * get Id of the department.
+   *
+   * @return deptId of the department.
+   */
+  public int getDeptId() {
+<span class="fc" id="L56">    return deptId;</span>
+  }
+
+  /**
+   * setting department id.
+   *
+   * @param deptIdd
+   *
+   */
+  public void setDeptId(final int deptIdd) {
+<span class="fc" id="L66">    this.deptId = deptIdd;</span>
+<span class="fc" id="L67">  }</span>
+
+  /**
+   * get List of users.
+   *
+   * @return users
+   */
+  public List&lt;User&gt; getUser() {
+<span class="fc" id="L75">    return users;</span>
+  }
+
+  /**
+   * set UserList.
+   *
+   * @param userss
+   *
+   */
+  public void setUser(final List&lt;User&gt; userss) {
+<span class="fc" id="L85">    this.users = userss;</span>
+<span class="fc" id="L86">  }</span>
+
+  /**
+   * field constructor of field.
+   *
+   * @param deptIdd
+   *
+   * @param deptNamee
+   *
+   * @param userss
+   *
+   * @param assignedTicketss
+   *
+   */
+  public Department(
+      final int deptIdd,
+      final String deptNamee,
+      final List&lt;User&gt; userss,
+      final List&lt;Ticket&gt; assignedTicketss
+  ) {
+<span class="fc" id="L106">    super();</span>
+<span class="fc" id="L107">    this.deptId = deptIdd;</span>
+<span class="fc" id="L108">    this.deptName = deptNamee;</span>
+<span class="fc" id="L109">    this.users = userss;</span>
+<span class="fc" id="L110">    this.assignedTickets = assignedTicketss;</span>
+<span class="fc" id="L111">  }</span>
+
+  /**
+   * get TicketList.
+   *
+   * @return assignedTickets
+   */
+  public List&lt;Ticket&gt; getTicketList() {
+<span class="fc" id="L119">    return assignedTickets;</span>
+  }
+
+  /**
+   * setTicketList.
+   *
+   * @param assignedTicketss
+   *
+   */
+  public void setTicketList(final List&lt;Ticket&gt; assignedTicketss) {
+<span class="fc" id="L129">    this.assignedTickets = assignedTicketss;</span>
+<span class="fc" id="L130">  }</span>
+
+  /**
+   * getting name of the department.
+   *
+   * @return deptName
+   */
+  public String getDeptName() {
+<span class="fc" id="L138">    return deptName;</span>
+  }
+
+  /**
+   * setting department name.
+   *
+   * @param deptNamee
+   *
+   */
+  public void setDeptName(final String deptNamee) {
+<span class="fc" id="L148">    this.deptName = deptNamee;</span>
+<span class="fc" id="L149">  }</span>
+
+  /**
+   * Argument constructor.
+   *
+   * @param deptIdd
+   *
+   * @param deptNamee
+   *
+   */
+  public Department(final int deptIdd, final String deptNamee) {
+<span class="fc" id="L160">    super();</span>
+<span class="fc" id="L161">    this.deptId = deptIdd;</span>
+<span class="fc" id="L162">    this.deptName = deptNamee;</span>
+<span class="fc" id="L163">  }</span>
+
+  /**
+   * NoArgsConstructor.
+   */
+  public Department() {
+<span class="fc" id="L169">    super();</span>
+<span class="fc" id="L170">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

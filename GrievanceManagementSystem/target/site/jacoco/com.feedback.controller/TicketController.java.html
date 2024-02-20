@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TicketController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.controller</a> &gt; <span class="el_source">TicketController.java</span></div><h1>TicketController.java</h1><pre class="source lang-java linenums">package com.feedback.controller;
+
+import com.feedback.entities.Ticket;
+import com.feedback.payloads.ticket_dto.GetTicketsDtoIn;
+import com.feedback.payloads.ticket_dto.TicketDto;
+import com.feedback.payloads.ticket_dto.UpdateTicketDtoIn;
+import com.feedback.payloads.ticket_dto.GetTicketDtoOut;
+import com.feedback.service.TicketService;
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * Ticket Controller class.
+ *
+ * @author jagat.
+ */
+@CrossOrigin(origins = &quot;http://localhost:3000&quot;)
+@RestController
+@RequestMapping(&quot;api/tickets&quot;)
+<span class="fc" id="L32">public class TicketController {</span>
+  /**
+   * ticket service object initialization.
+   */
+  @Autowired
+  private TicketService ticketService;
+
+  /**
+   * adding tickets to databases.
+   *
+   * @param ticket
+   *
+   * @return saved ticket string.
+   */
+  @PostMapping(&quot;/addTicket&quot;)
+  public ResponseEntity&lt;?&gt; addTickets(@RequestBody final TicketDto ticket) {
+//    if (ticket == null) {
+//      LOGGER.error(&quot;Not got data from frontend&quot;);
+//      throw new NullPointerFromFrontendException(
+//        &quot;Ticket data not received in the backend.&quot;
+//      );
+//    }
+<span class="fc" id="L54">    String message = &quot;&quot;;</span>
+<span class="fc" id="L55">    Ticket savedTicket = ticketService.saveTicket(ticket);</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">    if (savedTicket != null) {</span>
+<span class="fc" id="L57">      message = &quot;Ticket saved Successfully!!!&quot;;</span>
+    }
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">    if (savedTicket == null) {</span>
+//      return ResponseEntity.status(HttpStatus.OK).body(message);
+<span class="nc" id="L61">        return ResponseEntity.status(HttpStatus.OK).body(&quot;Ticket not saved&quot;);</span>
+    }
+<span class="fc" id="L63">    return ResponseEntity.status(HttpStatus.OK).body(message);</span>
+  }
+
+  /**
+   * getting tickets based on certain condition.
+   *
+   * @param getTicketsDTOin
+   *
+   * @return list of ticket.
+   */
+  @PostMapping(&quot;/getAllTicket&quot;)
+  public ResponseEntity&lt;?&gt; getTickets(
+      @Valid @RequestBody final GetTicketsDtoIn getTicketsDTOin
+  ) {
+<span class="fc" id="L77">    List&lt;GetTicketDtoOut&gt; allTicketList = ticketService</span>
+<span class="fc" id="L78">        .getTickets(getTicketsDTOin);</span>
+<span class="fc" id="L79">    return ResponseEntity.status(HttpStatus.OK).body(allTicketList);</span>
+  }
+
+  /**
+   * updating status and comment on the ticket.
+   *
+   * @param updateTicketDtoIn
+   *
+   * @return updateTicket.
+   */
+  @PostMapping(&quot;/updateTicket&quot;)
+  public ResponseEntity&lt;?&gt; updateTicket(
+      @Valid @RequestBody final UpdateTicketDtoIn updateTicketDtoIn
+  ) {
+<span class="fc" id="L93">    Boolean updatedTicket = ticketService.updatingTicket(updateTicketDtoIn);</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">    if (updatedTicket) {</span>
+<span class="fc" id="L95">      return ResponseEntity</span>
+<span class="fc" id="L96">          .status(HttpStatus.OK)</span>
+<span class="fc" id="L97">          .body(&quot;Ticket Updated.&quot;);</span>
+    }
+<span class="fc" id="L99">    return ResponseEntity</span>
+<span class="fc" id="L100">        .status(HttpStatus.OK)</span>
+<span class="fc" id="L101">        .body(&quot;Could not update your ticket.&quot;);</span>
+  }
+
+  /**
+   * set it to work in the test cases.
+   *
+   * @param ticketServicee
+   *
+   */
+  public void setTicketService(final TicketService ticketServicee) {
+<span class="fc" id="L111">    this.ticketService = ticketServicee;</span>
+<span class="fc" id="L112">  }</span>
+
+  /**
+   * Get ticket by its id.
+   *
+   * @param ticketId
+   *
+   * @return string.
+   */
+  @GetMapping(&quot;/getIcketById/{ticketId}&quot;)
+  public ResponseEntity&lt;?&gt; getTicketById(
+      @PathVariable(&quot;ticketId&quot;) final Long ticketId) {
+<span class="nc" id="L124">    GetTicketDtoOut ticketDTOout = ticketService.getByTicketById(ticketId);</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">    if (ticketDTOout != null) {</span>
+<span class="nc" id="L126">      return ResponseEntity.status(HttpStatus.OK).body(ticketDTOout);</span>
+    }
+<span class="nc" id="L128">    return ResponseEntity.status(HttpStatus.OK).body(&quot;Tickets not found&quot;);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

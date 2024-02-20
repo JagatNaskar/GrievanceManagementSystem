@@ -1,0 +1,100 @@
+.DUmain-div {
+  padding: 20px;
+}
+
+.user-table {
+  /* width: 90%; */
+
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.user-table th,
+.user-table td {
+  text-align: left;
+  padding: 8px;
+  font-family: "Arial", sans-serif;
+}
+
+.user-table th {
+  background-color: #333;
+  color: #fff;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.user-table .userrow:hover {
+  background-color: #decfe067;
+}
+
+.delete-button {
+  border: none;
+  border-radius: 50px;
+  /* background-color: rgb(105, 30, 42); */
+  color: #fff;
+  /* padding: 8px 16px; */
+  cursor: pointer;
+  font-family: "Arial", sans-serif;
+  min-width: 60px;
+  max-width: 70px;
+  min-height: 20px;
+  max-height: 40px;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.delete-button:hover {
+  background-color: #d9b3b0;
+}
+.delete-button:disabled {
+  /* background-color: rgba(112, 112, 111, 0.616);  */
+  cursor: not-allowed;
+}
+
+.Data-not-available {
+  margin-left: 7px;
+  text-align: center;
+  color: #0f0925;
+}
+@media screen and (max-width: 600px) {
+  .user-table {
+    overflow-x: auto;
+    display: block;
+  }
+
+  .user-table thead {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .user-table thead,
+  .user-table tbody,
+  .user-table th,
+  .user-table td,
+  .user-table tr {
+    display: block;
+  }
+
+  .user-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+  }
+
+  .user-table td {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .user-table td:last-child {
+    border-bottom: none;
+  }
+}
+
+.DU-Not_Found_Image{
+  margin-left: 33%;
+  height: 38.3vh;
+}

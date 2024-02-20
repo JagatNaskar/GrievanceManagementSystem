@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.serviceImplementation</a> &gt; <span class="el_source">UserServiceImpl.java</span></div><h1>UserServiceImpl.java</h1><pre class="source lang-java linenums">package com.feedback.serviceImplementation;
+
+import com.feedback.custom_exception.DepartmentNotFoundException;
+import com.feedback.custom_exception.UserNotFoundException;
+import com.feedback.entities.Department;
+import com.feedback.entities.User;
+import com.feedback.payloads.user_dto.AddUserDto;
+import com.feedback.payloads.user_dto.PasswordChangeDtoIn;
+import com.feedback.payloads.user_dto.UserProfileDtoOut;
+import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
+import com.feedback.payloads.user_dto.LoginDtoIn;
+import com.feedback.payloads.user_dto.LoginDtoOut;
+import com.feedback.repository.DepartmentRepository;
+import com.feedback.repository.UserRepository;
+import com.feedback.service.UserService;
+
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+/**
+ * Implementation of UserService interface.
+ */
+@Service
+public class UserServiceImpl implements UserService {
+
+  /**
+     * Constructor for UserServiceImpl.
+     *
+     * @param userRepositoryy The repository for user operations.
+     */
+  public UserServiceImpl(final UserRepository userRepositoryy) {
+<span class="fc" id="L41">    super();</span>
+<span class="fc" id="L42">    this.userRepository = userRepositoryy;</span>
+<span class="fc" id="L43">  }</span>
+
+  /**
+   *userRepository.
+   */
+  @Autowired
+  private final UserRepository userRepository;
+
+  /**
+   * DepartmentRepository object.
+   */
+  @Autowired
+  private DepartmentRepository departmentRepository;
+
+  /**
+   * Logger initialization.
+   */
+<span class="fc" id="L60">  private static final Logger LOGGER = LogManager</span>
+<span class="fc" id="L61">        .getLogger(UserServiceImpl.class);</span>
+
+  /**
+   * Save a user to the repository.
+   *
+   * @param user The user to be saved (should be final).
+   * @return The saved user.
+   */
+  @Override
+  public User saveUser(final AddUserDto user) {
+<span class="fc" id="L71">    User newUser = new User();</span>
+<span class="fc" id="L72">    LOGGER.info(&quot;ser1 &quot; + newUser);</span>
+<span class="fc" id="L73">    newUser.setName(user.getName());</span>
+<span class="fc" id="L74">    newUser.setUserName(user.getUserName());</span>
+<span class="fc" id="L75">    newUser.setPassword(user.getPassword());</span>
+<span class="fc" id="L76">    newUser.setfinalPassword(false);</span>
+<span class="fc" id="L77">    newUser.setUserType(user.getUserType());</span>
+<span class="fc" id="L78">    if (departmentRepository</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        .findByDeptName(user.getDepartmentName()) == null) {</span>
+<span class="fc" id="L80">      LOGGER.error(&quot;Department not found.&quot;);</span>
+<span class="fc" id="L81">      throw new DepartmentNotFoundException(user.getDepartmentName());</span>
+    }
+<span class="fc" id="L83">    Department department = departmentRepository</span>
+<span class="fc" id="L84">          .findByDeptName(user.getDepartmentName());</span>
+<span class="fc" id="L85">    newUser.setDepartment(department);</span>
+<span class="fc" id="L86">    LOGGER.info(&quot;Saved user successfully.&quot;);</span>
+<span class="fc" id="L87">    return userRepository.save(newUser);</span>
+  }
+
+  /**
+   * Check if a user with the provided userName already exists.
+   *
+   * @param user The user information to be checked.
+   * @return True if the user already exists, otherwise false.
+   */
+  public boolean checkAlreadyExist(final AddUserDto user) {
+<span class="fc" id="L97">    User u1 = new User();</span>
+<span class="fc" id="L98">    u1.setUserName(user.getUserName());</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">    if (userRepository.existsByUserName(u1.getUserName())) {</span>
+<span class="fc" id="L100">      LOGGER.info(&quot;User exist = &quot; + true);</span>
+<span class="fc" id="L101">      return true;</span>
+    }
+<span class="fc" id="L103">    LOGGER.info(&quot;User exist = &quot; + false);</span>
+<span class="fc" id="L104">    return false;</span>
+  }
+
+  /**
+   * Get a list of all users.
+   *
+   * @return A list of all users.
+   */
+  @Override
+  public List&lt;GetAllUsersDtoOut&gt; getAllUsers(final Integer pageNo) {
+<span class="fc" id="L114">    final int totalNumberOfContent = 5;</span>
+<span class="fc" id="L115">    Pageable pageable = PageRequest.of(pageNo, totalNumberOfContent);</span>
+<span class="fc" id="L116">    Page&lt;User&gt; usersPage = userRepository.findAll(pageable);</span>
+<span class="fc" id="L117">    List&lt;User&gt; users = usersPage.getContent();</span>
+<span class="fc" id="L118">    List&lt;GetAllUsersDtoOut&gt; dtoList = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L120" title="All 2 branches covered.">    for (User user : users) {</span>
+<span class="fc" id="L121">      GetAllUsersDtoOut dto = new GetAllUsersDtoOut(</span>
+<span class="fc" id="L122">            user.getUserId(),</span>
+<span class="fc" id="L123">            user.getName(),</span>
+<span class="fc" id="L124">            user.getUserName(),</span>
+<span class="fc" id="L125">            user.getUserType().toString(),</span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">            user.getDepartment() != null ? user.getDepartment()</span>
+<span class="pc" id="L127">                .getDeptName() : null</span>
+        );
+<span class="fc" id="L129">      dtoList.add(dto);</span>
+<span class="fc" id="L130">    }</span>
+<span class="fc" id="L131">    LOGGER.info(&quot;Returned list of users, success&quot;);</span>
+<span class="fc" id="L132">    return dtoList;</span>
+  }
+
+  /**
+   * Get a user by their ID.
+   *
+   * @param id The ID of the user to retrieve (should be final).
+   * @return The user with the specified ID.
+   */
+  @Override
+  public User getUserById(final Integer id) {
+<span class="fc" id="L143">    LOGGER.info(&quot;Returned user by id = &quot; + id);</span>
+<span class="fc" id="L144">    return userRepository.findById(id).get();</span>
+  }
+
+  /**
+   * getByUserAndPassword.
+   *
+   *@param loginDtoIn
+   *
+   *@return LoginDtoOut
+   */
+  @Override
+  public LoginDtoOut getByUserAndPassword(final LoginDtoIn loginDtoIn) {
+<span class="fc" id="L156">      String userName = new String(Base64.getDecoder()</span>
+<span class="fc" id="L157">              .decode(loginDtoIn.getEmail()), StandardCharsets.UTF_8);</span>
+<span class="fc" id="L158">          LOGGER.info(&quot;Email got = &quot; + userName);</span>
+<span class="fc" id="L159">          LOGGER.info(&quot;Password got = &quot; + new String(Base64.getDecoder()</span>
+<span class="fc" id="L160">                  .decode(loginDtoIn.getPassword()), StandardCharsets.UTF_8));</span>
+
+    try {
+<span class="fc bfc" id="L163" title="All 2 branches covered.">      if (!userRepository.existsByUserName(userName)) {</span>
+<span class="fc" id="L164">        return null;</span>
+      }
+<span class="fc" id="L166">      User u1 = userRepository.getUserByUsername(userName);</span>
+<span class="fc" id="L167">      LOGGER.info(&quot;Actual emial = &quot; + u1.getUserName());</span>
+<span class="fc" id="L168">      String decodedPass = new String(Base64.getDecoder()</span>
+<span class="fc" id="L169">          .decode(u1.getPassword()), StandardCharsets.UTF_8);</span>
+<span class="fc" id="L170">      LOGGER.info(&quot;Actual password = &quot; + decodedPass);</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">      if (loginDtoIn.getPassword().equals(u1.getPassword())) {</span>
+<span class="fc" id="L172">        LoginDtoOut loginDtoOut = new LoginDtoOut();</span>
+<span class="fc" id="L173">        loginDtoOut.setName(u1.getName());</span>
+<span class="fc" id="L174">        loginDtoOut.setUserName(u1.getUserName());</span>
+<span class="fc" id="L175">        loginDtoOut.setDepartmentName(u1.getDepartment().getDeptName());</span>
+<span class="fc" id="L176">        loginDtoOut.setFinalPassword(u1.getfinalPassword().toString());</span>
+<span class="fc" id="L177">        loginDtoOut.setPassword(u1.getPassword());</span>
+<span class="fc" id="L178">        loginDtoOut.setUserType(u1.getUserType().toString());</span>
+<span class="fc" id="L179">        LOGGER.info(&quot;Success login&quot;);</span>
+<span class="fc" id="L180">        return loginDtoOut;</span>
+      }
+<span class="fc" id="L182">    } catch (Exception e) {</span>
+<span class="fc" id="L183">      LOGGER.info(&quot;Error = &quot; + e.getMessage());</span>
+<span class="fc" id="L184">      return null;</span>
+<span class="fc" id="L185">    }</span>
+<span class="fc" id="L186">    LOGGER.info(&quot;Login failed.&quot;);</span>
+<span class="fc" id="L187">    return null;</span>
+  }
+
+  /**
+   * Delete a user by their ID.
+   *
+   * @param userId of the user to delete.
+   *
+   * @return True if the user was successfully deleted, false otherwise.
+   */
+  @Override
+  public String deleteUser(final Integer userId) {
+<span class="fc bfc" id="L199" title="All 2 branches covered.">    if (userRepository.existsById(userId)) {</span>
+<span class="fc" id="L200">      userRepository.deleteById(userId);</span>
+<span class="fc" id="L201">      LOGGER.info(&quot;Deleted successfully.&quot;);</span>
+<span class="fc" id="L202">      return &quot;Deleted Successfully&quot;;</span>
+    } else {
+<span class="fc" id="L204">      LOGGER.error(&quot;Failed to delete&quot;);</span>
+<span class="fc" id="L205">      throw new UserNotFoundException(userId);</span>
+    }
+  }
+
+  /**
+   * Password change function.
+   *
+   * @param request
+   *
+   * @return Success or not not.
+   */
+  public String passwordChangedSuccess(final PasswordChangeDtoIn request) {
+<span class="fc" id="L217">    String userName = new String(Base64.getDecoder()</span>
+<span class="fc" id="L218">        .decode(request.getUserName()), StandardCharsets.UTF_8);</span>
+<span class="fc" id="L219">    String oldPassword = request.getOldPassword();</span>
+<span class="fc" id="L220">    String newPassword = request.getNewPassword();</span>
+<span class="fc" id="L221">    String confirmNewPassword = request.getConfirmNewPassword();</span>
+<span class="pc bpc" id="L222" title="1 of 2 branches missed.">    if (!userRepository.existsByUserName(userName)) {</span>
+<span class="nc" id="L223">      LOGGER.error(&quot;User not exist.&quot;);</span>
+<span class="nc" id="L224">      throw new UserNotFoundException(userName);</span>
+    }
+<span class="fc" id="L226">    User user = userRepository.getUserByUsername(userName);</span>
+<span class="fc" id="L227">    String userPassword = user.getPassword();</span>
+<span class="pc bpc" id="L228" title="1 of 2 branches missed.">    if (!userPassword.equals(oldPassword)) {</span>
+<span class="nc" id="L229">      LOGGER.info(&quot;Equals old and new Password = &quot;</span>
+<span class="nc" id="L230">          + userPassword.equals(oldPassword));</span>
+<span class="nc" id="L231">      LOGGER.info(&quot;Correct password = &quot; + user.getPassword());</span>
+<span class="nc" id="L232">      LOGGER.info(&quot;Incorrect old password.&quot;);</span>
+<span class="nc" id="L233">      return &quot;Incorrect old password.&quot;;</span>
+    }
+<span class="pc bpc" id="L235" title="1 of 2 branches missed.">    if (!newPassword.equals(confirmNewPassword)) {</span>
+<span class="nc" id="L236">      LOGGER.info(&quot;New Password and old does not match.&quot;);</span>
+<span class="nc" id="L237">      return &quot;newPassword does not match with confirm password&quot;;</span>
+    }
+<span class="pc bpc" id="L239" title="1 of 2 branches missed.">    if (userPassword.equals(oldPassword)</span>
+<span class="pc bpc" id="L240" title="1 of 2 branches missed.">            &amp;&amp; newPassword.equals(confirmNewPassword)) {</span>
+<span class="fc" id="L241">        user.setPassword(newPassword);</span>
+<span class="fc" id="L242">        user.setfinalPassword(true);</span>
+<span class="fc" id="L243">        userRepository.save(user);</span>
+<span class="fc" id="L244">          return &quot;Password changed successfully&quot;;</span>
+    }
+<span class="nc" id="L246">    LOGGER.info(&quot;Failed to change password.&quot;);</span>
+<span class="nc" id="L247">    return &quot;Sorry, could not change the password.&quot;;</span>
+  }
+
+  /**
+   * getByUserByUserName.
+   *
+   * @param userName
+   *
+   * @return userProfileDTOout
+   */
+  public UserProfileDtoOut getByUserByUserName(final String userName) {
+<span class="fc" id="L258">    UserProfileDtoOut userProfileDtoOut = new UserProfileDtoOut();</span>
+<span class="fc bfc" id="L259" title="All 2 branches covered.">    if (userRepository.existsByUserName(userName)) {</span>
+<span class="fc" id="L260">      User user = userRepository.getUserByUsername(userName);</span>
+<span class="fc" id="L261">      userProfileDtoOut.setName(user.getName());</span>
+<span class="fc" id="L262">      userProfileDtoOut.setUserName(user.getUserName());</span>
+<span class="fc" id="L263">      userProfileDtoOut.setPassword(user.getPassword());</span>
+<span class="fc" id="L264">      userProfileDtoOut.setUserType(user.getUserType().toString());</span>
+<span class="fc" id="L265">      userProfileDtoOut.setDepartmentName(user.getDepartment().getDeptName());</span>
+<span class="fc" id="L266">      LOGGER.info(&quot;Got Profile of user success.&quot;);</span>
+<span class="fc" id="L267">      return userProfileDtoOut;</span>
+    }
+<span class="fc" id="L269">    LOGGER.info(&quot;Could not found user.&quot;);</span>
+<span class="fc" id="L270">    return null;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

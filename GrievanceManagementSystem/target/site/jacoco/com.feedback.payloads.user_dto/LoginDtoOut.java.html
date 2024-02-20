@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginDtoOut.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.payloads.user_dto</a> &gt; <span class="el_source">LoginDtoOut.java</span></div><h1>LoginDtoOut.java</h1><pre class="source lang-java linenums">package com.feedback.payloads.user_dto;
+
+import java.util.Objects;
+
+/**
+ * LoginDtoOut class.
+ */
+public class LoginDtoOut {
+
+  /**
+   * name variable.
+   */
+  private String name;
+
+  /**
+   * userName variable.
+   */
+  private String userName;
+
+  /**
+   * password variable.
+   */
+  private String password;
+
+  /**
+   * userType variable.
+   */
+  private String userType;
+
+  /**
+   * finalPassword variable.
+   */
+  private String finalPassword;
+
+  /**
+   * departmentName variable.
+   */
+  private String departmentName;
+
+  /**
+   * getName.
+   *
+   * @return the name
+   */
+  public String getName() {
+<span class="fc" id="L46">    return name;</span>
+  }
+
+  /**
+   * setName.
+   *
+   * @param namee the name to set
+   *
+   */
+  public void setName(String namee) {
+<span class="fc" id="L56">    this.name = namee;</span>
+<span class="fc" id="L57">  }</span>
+
+  /**
+   * getUserName.
+   *
+   * @return the userName
+   *
+   */
+  public String getUserName() {
+<span class="fc" id="L66">    return userName;</span>
+  }
+
+  /**
+   * setUserName.
+   *
+   * @param userNamee the userName to set
+   *
+   */
+  public void setUserName(String userNamee) {
+<span class="fc" id="L76">    this.userName = userNamee;</span>
+<span class="fc" id="L77">  }</span>
+
+  /**
+   * getPassword.
+   *
+   * @return the password
+   *
+   */
+  public String getPassword() {
+<span class="fc" id="L86">    return password;</span>
+  }
+
+  /**
+   * setPassword.
+   *
+   * @param passwordd the password to set
+   *
+   */
+  public void setPassword(String passwordd) {
+<span class="fc" id="L96">    this.password = passwordd;</span>
+<span class="fc" id="L97">  }</span>
+
+  /**
+   * getUserType.
+   *
+   * @return the userType
+   *
+   */
+  public String getUserType() {
+<span class="fc" id="L106">    return userType;</span>
+  }
+
+  /**
+   * setUserTypee.
+   *
+   * @param userTypee the userType to set
+   *
+   */
+  public void setUserType(final String userTypee) {
+<span class="fc" id="L116">    this.userType = userTypee;</span>
+<span class="fc" id="L117">  }</span>
+
+  /**
+   * getFinalPassword.
+   *
+   * @return the finalPassword
+   *
+   */
+  public String getFinalPassword() {
+<span class="fc" id="L126">    return finalPassword;</span>
+  }
+
+  /**
+   * setFinalPassword.
+   *
+   * @param finalPasswordd the finalPassword to set
+   *
+  */
+  public void setFinalPassword(final String finalPasswordd) {
+<span class="fc" id="L136">    this.finalPassword = finalPasswordd;</span>
+<span class="fc" id="L137">  }</span>
+
+  /**
+   * getDepartmentName.
+   *
+  * @return the departmentName
+  *
+  */
+  public String getDepartmentName() {
+<span class="fc" id="L146">    return departmentName;</span>
+  }
+
+  /**
+   * setDepartmentName.
+   *
+   * @param departmentNamee the departmentName to set
+   *
+  */
+  public void setDepartmentName(final String departmentNamee) {
+<span class="fc" id="L156">    this.departmentName = departmentNamee;</span>
+<span class="fc" id="L157">  }</span>
+
+  /**
+   * LoginDtoOut field constructor.
+   *
+   * @param namee
+   *
+   * @param userNamee
+   *
+   * @param passwordd
+   *
+   * @param userTypee
+   *
+   * @param finalPasswordd
+   *
+   * @param departmentNamee
+   *
+   */
+  public LoginDtoOut(final String namee, final String userNamee,
+        final String passwordd, final String userTypee,
+        final String finalPasswordd, final String departmentNamee) {
+<span class="fc" id="L178">    super();</span>
+<span class="fc" id="L179">    this.name = namee;</span>
+<span class="fc" id="L180">    this.userName = userNamee;</span>
+<span class="fc" id="L181">    this.password = passwordd;</span>
+<span class="fc" id="L182">    this.userType = userTypee;</span>
+<span class="fc" id="L183">    this.finalPassword = finalPasswordd;</span>
+<span class="fc" id="L184">    this.departmentName = departmentNamee;</span>
+<span class="fc" id="L185">  }</span>
+
+  /**
+   * hashCode.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L192">    return Objects.hash(departmentName, finalPassword,</span>
+            name, password, userName,
+            userType);
+  }
+
+  /**
+   * equals object.
+   */
+  @Override
+  public boolean equals(final Object obj) {
+<span class="pc bpc" id="L202" title="1 of 2 branches missed.">    if (this == obj) {</span>
+<span class="nc" id="L203">        return true;</span>
+    }
+<span class="pc bpc" id="L205" title="1 of 2 branches missed.">    if (obj == null) {</span>
+<span class="nc" id="L206">        return false;</span>
+    }
+<span class="pc bpc" id="L208" title="1 of 2 branches missed.">    if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L209">        return false;</span>
+    }
+<span class="fc" id="L211">    LoginDtoOut other = (LoginDtoOut) obj;</span>
+<span class="fc bfc" id="L212" title="All 2 branches covered.">    return Objects.equals(departmentName, other.departmentName)</span>
+<span class="pc bpc" id="L213" title="1 of 2 branches missed.">            &amp;&amp; Objects.equals(finalPassword, other.finalPassword)</span>
+<span class="pc bpc" id="L214" title="1 of 2 branches missed.">            &amp;&amp; Objects.equals(name, other.name)</span>
+<span class="pc bpc" id="L215" title="1 of 2 branches missed.">            &amp;&amp; Objects.equals(password, other.password)</span>
+<span class="pc bpc" id="L216" title="1 of 2 branches missed.">            &amp;&amp; Objects.equals(userName, other.userName)</span>
+<span class="pc bpc" id="L217" title="1 of 2 branches missed.">            &amp;&amp; Objects.equals(userType, other.userType);</span>
+  }
+
+  /**
+   * LoginDtoOut constructor.
+   */
+  public LoginDtoOut() {
+<span class="fc" id="L224">    super();</span>
+<span class="fc" id="L225">  }</span>
+
+  /**
+   * toString.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L232">    return &quot;LoginDtoOut [name=&quot; + name + &quot;, userName=&quot; + userName</span>
+            + &quot;, password=&quot; + password + &quot;, userType=&quot; + userType
+            + &quot;, finalPassword=&quot; + finalPassword + &quot;, departmentName=&quot;
+            + departmentName + &quot;]&quot;;
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Ticket.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.entities</a> &gt; <span class="el_source">Ticket.java</span></div><h1>Ticket.java</h1><pre class="source lang-java linenums">package com.feedback.entities;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+/**
+ * Represents a ticket entity in the system.
+ */
+@Entity
+@Table(name = &quot;Ticket&quot;)
+public class Ticket {
+
+  /**
+   * The Id of the ticket.
+  */
+  @Id
+  @Column
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long ticketId;
+
+  /**
+   * The title of the ticket.
+  */
+  @Column
+  private String ticketTitle;
+
+  /**
+   * The type of the ticket.
+  */
+  @Column
+  private String ticketType;
+
+  /**
+   * The status of the ticket.
+  */
+  @Column
+  @Enumerated(EnumType.STRING)
+  private Estatus ticketStatus;
+
+  /**
+   * The user who assigned the ticket.
+  */
+  @Column
+  private String ticketAssignedBy;
+
+  /**
+   * The creation time of the ticket.
+  */
+  @Column
+  @CreationTimestamp
+  private LocalDateTime ticketCreationTime;
+
+  /**
+   * The last updated time of the ticket.
+  */
+  @Column
+  @UpdateTimestamp
+  private LocalDateTime lastUpdatedTime;
+
+  /**
+   * ticketDescription.
+   */
+  @Column
+  private String ticketDescription;
+
+  /**
+   * getting ticket description.
+   *
+   * @return ticketDescription
+   */
+  public String getTicketDescription() {
+<span class="fc" id="L87">    return ticketDescription;</span>
+  }
+
+  /**
+   * setting ticket description.
+   *
+   * @param ticketDescriptionn
+   *
+   */
+  public void setTicketDescription(final String ticketDescriptionn) {
+<span class="fc" id="L97">    this.ticketDescription = ticketDescriptionn;</span>
+<span class="fc" id="L98">  }</span>
+
+  /**
+   * User object.
+   * mapped by ManyToOne relationship with Ticket.
+   */
+  @ManyToOne
+  @JoinColumn(name = &quot;userId&quot;)
+  private User createdBy;
+
+  /**
+   * Department object.
+   * Many to one mapped.
+   */
+  @ManyToOne
+  @JoinColumn(name = &quot;deptId&quot;)
+  private Department assignedDepartment;
+
+  /**
+   * List of comment object to map
+   * OneToMany mapped.
+   */
+<span class="fc" id="L120">  @OneToMany(mappedBy = &quot;ticket&quot;, cascade = CascadeType.ALL)</span>
+  private List&lt;Comment&gt; comments = new ArrayList&lt;&gt;();
+
+  /**
+   * Default constructor.
+  */
+<span class="fc" id="L126">  public Ticket() { }</span>
+
+  /**
+   * get user object.
+   *
+   * @return createdBy
+   */
+  public User getUser() {
+<span class="fc" id="L134">    return createdBy;</span>
+  }
+
+  /**
+   * set user object.
+   *
+   * @param userr
+   *
+   */
+  public void setUser(final User userr) {
+<span class="fc" id="L144">    this.createdBy = userr;</span>
+<span class="fc" id="L145">  }</span>
+
+  /**
+   * get department object.
+   *
+   * @return assignedDepartment
+   */
+  public Department getDepartment() {
+<span class="fc" id="L153">    return assignedDepartment;</span>
+  }
+
+  /**\
+   * set department object.
+   *
+   * @param departmentt
+   *
+   */
+  public void setDepartment(final Department departmentt) {
+<span class="fc" id="L163">    this.assignedDepartment = departmentt;</span>
+<span class="fc" id="L164">  }</span>
+
+  /**
+   * Get the id of the ticket.
+   *
+   * @return The ticket title.
+   */
+  public Long getTicketId() {
+<span class="fc" id="L172">    return ticketId;</span>
+  }
+
+  /**
+   * Set the id of the ticket.
+   *
+   * @param l
+   *
+   */
+  public void setTicketId(final long l) {
+<span class="fc" id="L182">    this.ticketId = l;</span>
+<span class="fc" id="L183">  }</span>
+
+  /**
+   * setTicketId.
+   *
+   * @param ticketIdd
+   *
+   */
+  public void setTicketId(final Long ticketIdd) {
+<span class="fc" id="L192">    this.ticketId = ticketIdd;</span>
+<span class="fc" id="L193">  }</span>
+
+  /**
+   * Get the title of the ticket.
+   *
+   * @return The ticket title.
+   */
+  public String getTicketTitle() {
+<span class="fc" id="L201">    return ticketTitle;</span>
+  }
+
+  /**
+   * Set the title of the ticket.
+   *
+   * @param ticketTitlee The new ticket title.
+   */
+  public void setTicketTitle(final String ticketTitlee) {
+<span class="fc" id="L210">    this.ticketTitle = ticketTitlee;</span>
+<span class="fc" id="L211">  }</span>
+
+  /**
+   * Get the type of the ticket.
+   *
+   * @return The ticket type.
+   */
+  public String getTicketType() {
+<span class="fc" id="L219">    return ticketType;</span>
+  }
+
+  /**
+   * Set the type of the ticket.
+   *
+   * @param ticketTypee The new ticket type.
+   */
+  public void setTicketType(final String ticketTypee) {
+<span class="fc" id="L228">    this.ticketType = ticketTypee;</span>
+<span class="fc" id="L229">  }</span>
+
+  /**
+   * Get the status of the ticket.
+   *
+   * @return The ticket status.
+   */
+  public Estatus getTicketStatus() {
+<span class="fc" id="L237">    return ticketStatus;</span>
+  }
+
+  /**
+   * Set the status of the ticket.
+   *
+   * @param ticketStatuss The new ticket status.
+   */
+  public void setTicketStatus(final Estatus ticketStatuss) {
+<span class="fc" id="L246">    this.ticketStatus = ticketStatuss;</span>
+<span class="fc" id="L247">  }</span>
+
+  /**
+   * Get the user who assigned the ticket.
+   *
+   * @return The user who assigned the ticket.
+   */
+  public String getTicketAssignedBy() {
+<span class="fc" id="L255">    return ticketAssignedBy;</span>
+  }
+
+  /**
+   * Set the user who assigned the ticket.
+   *
+   * @param ticketAssignedByy The user who assigned the ticket.
+   */
+  public void setTicketAssignedBy(final String ticketAssignedByy) {
+<span class="fc" id="L264">    this.ticketAssignedBy = ticketAssignedByy;</span>
+<span class="fc" id="L265">  }</span>
+
+  /**
+   * Get the creation time of the ticket.
+   *
+   * @return The ticket creation time.
+   */
+  public LocalDateTime getTicketCreationTime() {
+<span class="fc" id="L273">    return ticketCreationTime;</span>
+  }
+
+  /**
+   * Set the creation time of the ticket.
+   *
+   * @param ticketCreationTimee The new ticket creation time.
+   */
+  public void setTicketCreationTime(final LocalDateTime ticketCreationTimee) {
+<span class="fc" id="L282">    this.ticketCreationTime = ticketCreationTimee;</span>
+<span class="fc" id="L283">  }</span>
+
+  /**
+  * Get the last updated time of the ticket.
+  *
+  * @return The ticket's last updated time.
+  */
+  public LocalDateTime getLastUpdatedTime() {
+<span class="fc" id="L291">    return lastUpdatedTime;</span>
+  }
+
+  /**
+   * setUpdated time.
+   *
+   * @param lastUpdatedTimee
+   *
+   */
+  public void setLastUpdatedTime(final LocalDateTime lastUpdatedTimee) {
+<span class="fc" id="L301">    this.lastUpdatedTime = lastUpdatedTimee;</span>
+<span class="fc" id="L302">  }</span>
+
+  /**
+   * field parameter constructor.
+   *
+   * @param ticketIdd
+   *
+   * @param ticketTitlee
+   *
+   * @param ticketTypee
+   *
+   * @param ticketStatuss
+   *
+   * @param ticketAssignedByy
+   *
+   * @param ticketCreationTimee
+   *
+   * @param lastUpdatedTimee
+   *
+   * @param ticketDescriptionn
+   *
+   * @param userr
+   *
+   * @param departmentt
+   *
+   * @param commentListt
+   *
+   */
+  public Ticket(final Long ticketIdd,
+      final String ticketTitlee,
+      final String ticketTypee,
+      final Estatus ticketStatuss,
+      final String ticketAssignedByy,
+      final LocalDateTime ticketCreationTimee,
+      final LocalDateTime lastUpdatedTimee,
+      final String ticketDescriptionn,
+      final User userr,
+      final Department departmentt,
+      final List&lt;Comment&gt; commentListt) {
+<span class="fc" id="L341">    super();</span>
+<span class="fc" id="L342">    this.ticketId = ticketIdd;</span>
+<span class="fc" id="L343">    this.ticketTitle = ticketTitlee;</span>
+<span class="fc" id="L344">    this.ticketType = ticketTypee;</span>
+<span class="fc" id="L345">    this.ticketStatus = ticketStatuss;</span>
+<span class="fc" id="L346">    this.ticketAssignedBy = ticketAssignedByy;</span>
+<span class="fc" id="L347">    this.ticketCreationTime = ticketCreationTimee;</span>
+<span class="fc" id="L348">    this.lastUpdatedTime = lastUpdatedTimee;</span>
+<span class="fc" id="L349">    this.ticketDescription = ticketDescriptionn;</span>
+<span class="fc" id="L350">    this.createdBy = userr;</span>
+<span class="fc" id="L351">    this.assignedDepartment = departmentt;</span>
+<span class="fc" id="L352">    this.comments = commentListt;</span>
+<span class="fc" id="L353">  }</span>
+
+  /**
+   * getCreatedBy.
+   *
+   * @return createdBy
+   */
+  public User getCreatedBy() {
+<span class="fc" id="L361">    return createdBy;</span>
+  }
+
+  /**
+   * setCreatedBy.
+   *
+   * @param createdByy
+   *
+   */
+  public void setCreatedBy(final User createdByy) {
+<span class="fc" id="L371">    this.createdBy = createdByy;</span>
+<span class="fc" id="L372">  }</span>
+
+  /**
+   * getAssignedDepartment.
+   *
+   * @return assignedDepartment
+   */
+  public Department getAssignedDepartment() {
+<span class="fc" id="L380">    return assignedDepartment;</span>
+  }
+
+  /**
+   * setAssignedDepartment.
+   *
+   * @param assignedDepartmentt
+   *
+   */
+  public void setAssignedDepartment(final Department assignedDepartmentt) {
+<span class="fc" id="L390">    this.assignedDepartment = assignedDepartmentt;</span>
+<span class="fc" id="L391">  }</span>
+
+  /**
+   * getComments.
+   *
+   * @return comments
+   */
+  public List&lt;Comment&gt; getComments() {
+<span class="fc" id="L399">    return comments;</span>
+  }
+
+  /**
+   * setComments.
+   *
+   * @param commentss
+   *
+   */
+  public void setComments(final List&lt;Comment&gt; commentss) {
+<span class="fc" id="L409">    this.comments = commentss;</span>
+<span class="fc" id="L410">  }</span>
+
+  /**
+   * addComment method.
+   *
+   * @param stt
+   *
+   */
+  public void addComment(final String stt) {
+<span class="pc bpc" id="L419" title="1 of 2 branches missed.">    if (stt == null) {</span>
+<span class="nc" id="L420">      comments = new ArrayList&lt;&gt;();</span>
+    } else {
+<span class="fc" id="L422">      comments.add(new Comment(stt));</span>
+    }
+<span class="fc" id="L424">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

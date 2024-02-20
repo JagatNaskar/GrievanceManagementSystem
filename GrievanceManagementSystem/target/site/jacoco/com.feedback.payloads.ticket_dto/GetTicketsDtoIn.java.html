@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GetTicketsDtoIn.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.payloads.ticket_dto</a> &gt; <span class="el_source">GetTicketsDtoIn.java</span></div><h1>GetTicketsDtoIn.java</h1><pre class="source lang-java linenums">package com.feedback.payloads.ticket_dto;
+
+import java.util.Objects;
+
+import javax.validation.constraints.NotNull;
+
+/**
+ * This inDTO is for getAllTickets function.
+ *
+ * @author jagat.
+ * @version 001.
+ */
+public class GetTicketsDtoIn {
+
+  /**
+   * email address variable.
+   */
+  @NotNull
+  private String email;
+
+  /**
+   * departmentBased string variable.
+   */
+  @NotNull
+  private String departmentBased;
+
+  /**
+   * assignByOwn String variable.
+   */
+  @NotNull
+  private String assignByOwn;
+
+  /**
+   * filterStatus variable.
+   */
+  @NotNull
+  private String filterStatus;
+
+  /**
+   * pageNumber variable.
+   */
+  @NotNull
+  private int pageNumber;
+
+  /**
+   * getPageNumber.
+   *
+   * @return pageNumber.
+   */
+  public int getPageNumber() {
+<span class="fc" id="L51">    return pageNumber;</span>
+  }
+
+  /**
+   * setPageNumber.
+   *
+   * @param pageNumberr
+   *
+   */
+  public void setPageNumber(final int pageNumberr) {
+<span class="fc" id="L61">    this.pageNumber = pageNumberr;</span>
+<span class="fc" id="L62">  }</span>
+
+  /**
+   * getEmail.
+   *
+   * @return email.
+   */
+  public String getEmail() {
+<span class="fc" id="L70">    return email;</span>
+  }
+
+  /**
+   * setEmail.
+   *
+   * @param emaill
+   *
+   */
+  public void setEmail(final String emaill) {
+<span class="fc" id="L80">    this.email = emaill;</span>
+<span class="fc" id="L81">  }</span>
+
+  /**
+   * getDepartmentBased.
+   *
+   * @return departmentBased.
+   */
+  public String getDepartmentBased() {
+<span class="fc" id="L89">    return departmentBased;</span>
+  }
+
+  /**
+   * setDepartmentBased.
+   *
+   * @param departmentBasedd
+   *
+   */
+  public void setDepartmentBased(final String departmentBasedd) {
+<span class="fc" id="L99">    this.departmentBased = departmentBasedd;</span>
+<span class="fc" id="L100">  }</span>
+
+  /**
+   * getAssignByOwn.
+   *
+   * @return assignByOwn.
+   */
+  public String getAssignByOwn() {
+<span class="fc" id="L108">    return assignByOwn;</span>
+  }
+
+  /**
+   * setAssignByOwn.
+   *
+   * @param assignByOwnn
+   *
+   */
+  public void setAssignByOwn(final String assignByOwnn) {
+<span class="fc" id="L118">    this.assignByOwn = assignByOwnn;</span>
+<span class="fc" id="L119">  }</span>
+
+  /**
+   * getFilterStatus.
+   *
+   * @return filterStatus.
+   */
+  public String getFilterStatus() {
+<span class="fc" id="L127">    return filterStatus;</span>
+  }
+
+  /**
+   * setFilterStatus.
+   *
+   * @param selectedStatuss
+   *
+   */
+  public void setFilterStatus(final String selectedStatuss) {
+<span class="fc" id="L137">    this.filterStatus = selectedStatuss;</span>
+<span class="fc" id="L138">  }</span>
+
+  /**
+   * GetTicketsDtoIn.
+   */
+  public GetTicketsDtoIn() {
+<span class="fc" id="L144">    super();</span>
+<span class="fc" id="L145">  }</span>
+
+  /**
+   * toString.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L152">    return &quot;GetTicketsDtoIn [email=&quot; + email</span>
+        + &quot;, departmentBased=&quot; + departmentBased
+        + &quot;, assignByOwn=&quot; + assignByOwn
+        + &quot;, filterStatus=&quot; + filterStatus
+        + &quot;, pageNumber=&quot; + pageNumber + &quot;]&quot;;
+  }
+
+  /**
+   * GetTicketsDtoIn field constructor.
+   *
+   * @param emaill
+   *
+   * @param departmentBasedd
+   *
+   * @param assignByOwnn
+   *
+   * @param filterStatuss
+   *
+   * @param pageNumberr
+   *
+   */
+  public GetTicketsDtoIn(final String emaill,
+      final String departmentBasedd,
+      final String assignByOwnn,
+      final String filterStatuss,
+      final int pageNumberr) {
+<span class="fc" id="L178">    super();</span>
+<span class="fc" id="L179">    this.email = emaill;</span>
+<span class="fc" id="L180">    this.departmentBased = departmentBasedd;</span>
+<span class="fc" id="L181">    this.assignByOwn = assignByOwnn;</span>
+<span class="fc" id="L182">    this.filterStatus = filterStatuss;</span>
+<span class="fc" id="L183">    this.pageNumber = pageNumberr;</span>
+<span class="fc" id="L184">  }</span>
+
+  /**
+   * hashCode method.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L191">    return Objects.hash(assignByOwn,</span>
+        departmentBased,
+        email, filterStatus,
+<span class="fc" id="L194">        pageNumber);</span>
+  }
+
+  /**
+   * equals object.
+   *
+   * @param obj
+   *
+   */
+  @Override
+  public boolean equals(final Object obj) {
+<span class="fc bfc" id="L205" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L206">      return true;</span>
+    }
+<span class="fc bfc" id="L208" title="All 2 branches covered.">    if (obj == null) {</span>
+<span class="fc" id="L209">      return false;</span>
+    }
+<span class="fc bfc" id="L211" title="All 2 branches covered.">    if (getClass() != obj.getClass()) {</span>
+<span class="fc" id="L212">      return false;</span>
+    }
+<span class="fc" id="L214">    GetTicketsDtoIn other = (GetTicketsDtoIn) obj;</span>
+<span class="fc bfc" id="L215" title="All 2 branches covered.">    return Objects.equals(assignByOwn, other.assignByOwn)</span>
+<span class="pc bpc" id="L216" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(departmentBased, other.departmentBased)</span>
+<span class="pc bpc" id="L217" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(email, other.email)</span>
+<span class="pc bpc" id="L218" title="2 of 4 branches missed.">        &amp;&amp; Objects.equals(filterStatus, other.filterStatus)</span>
+        &amp;&amp; pageNumber == other.pageNumber;
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

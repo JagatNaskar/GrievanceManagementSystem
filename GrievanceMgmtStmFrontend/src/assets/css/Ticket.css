@@ -1,0 +1,97 @@
+/* .T-DialogBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5a56598f;
+  box-shadow: 5%;
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(62, 50, 50, 0.2);
+  border-radius: 3px;
+  width: 100vw;
+  height: 100vh;
+} */
+.T-DialogBox{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1b191d98;
+  background-color: rgba(38, 36, 36, 0.752);
+  box-shadow: 5%;
+  padding: 20px;
+  border-radius: 3px;
+  width: 100vw;
+  height: 100vh;
+  
+}
+.Ttickets-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+
+  border-radius: 5px;
+  box-shadow: 1px 4px 10px rgba(0.5, 0, 0, 0.6);
+
+  justify-content: center;
+  position: absolute;
+  background-color: rgb(147, 149, 155);
+  margin-left: 30%;
+  margin-top: 8%;
+}
+.Tsub-structure {
+  display: flex;
+}
+
+.Tsub-structure1 {
+  margin: 2vw;
+}
+.Tticket-form {
+  display: grid;
+  gap: 10px;
+}
+
+.Tticket-form h2 {
+  margin-bottom: 10px;
+}
+
+.Tticket-form label {
+  font-weight: bold;
+}
+
+.Tticket-form input,
+.Tticket-form textarea,
+.Tticket-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #745d5d83;
+  border-radius: 5px;
+}
+
+.Tticket-form select {
+  height: 40px;
+}
+
+#ticketType, #assignTo{
+  font-style: italic;
+}
+
+.Tticket-form .Terror {
+  color: rgb(255, 0, 0);
+  font-size: smaller;
+}
+
+.Tticket-form button {
+  background-color: #0f0925;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid blue;
+}
+
+@media (max-width: 600px) {
+  .Tticket-form {
+    grid-template-columns: 1fr;
+  }
+}

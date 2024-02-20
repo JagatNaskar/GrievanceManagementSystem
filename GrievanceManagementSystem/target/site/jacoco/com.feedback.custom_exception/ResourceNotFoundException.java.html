@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ResourceNotFoundException.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GrievanceManagementSystem</a> &gt; <a href="index.source.html" class="el_package">com.feedback.custom_exception</a> &gt; <span class="el_source">ResourceNotFoundException.java</span></div><h1>ResourceNotFoundException.java</h1><pre class="source lang-java linenums">package com.feedback.custom_exception;
+
+/**
+ * ResourceNotFoundException class.
+ * @author jagat.
+ */
+public class ResourceNotFoundException extends RuntimeException {
+    private static final long serialVersionUID = 1L;
+    /**
+     * resourceName string variable.
+     */
+    private String resourceName;
+    /**
+     * FieldName string variable.
+     */
+    private String fieldName;
+    /**
+     * fieldValue long variable.
+     */
+    private Long fieldValue;
+
+    /**
+     * @return the resourceName
+     */
+    public String getResourceName() {
+<span class="fc" id="L26">        return resourceName;</span>
+    }
+
+    /**
+     * @param resourceNamee the resourceName to set
+     */
+    public void setResourceName(final String resourceNamee) {
+<span class="fc" id="L33">        this.resourceName = resourceNamee;</span>
+<span class="fc" id="L34">    }</span>
+
+    /**
+     * @return the fieldName
+     */
+    public String getFieldName() {
+<span class="fc" id="L40">        return fieldName;</span>
+    }
+
+    /**
+     * @param fieldNamee the fieldName to set
+     */
+    public void setFieldName(final String fieldNamee) {
+<span class="fc" id="L47">        this.fieldName = fieldNamee;</span>
+<span class="fc" id="L48">    }</span>
+
+    /**
+     * @return the fieldValue
+     */
+    public Long getFieldValue() {
+<span class="fc" id="L54">        return fieldValue;</span>
+    }
+
+    /**
+     * @param fieldValuee the fieldValue to set
+     */
+    public void setFieldValue(final Long fieldValuee) {
+<span class="fc" id="L61">        this.fieldValue = fieldValuee;</span>
+<span class="fc" id="L62">    }</span>
+
+    /**
+     * @return the serialversionuid
+     */
+    public static long getSerialversionuid() {
+<span class="fc" id="L68">        return serialVersionUID;</span>
+    }
+
+    /**
+     * Resource not found field constructor.
+     * @param resourceNamee
+     * @param fieldNamee
+     * @param fieldValuee
+     */
+    public ResourceNotFoundException(final String resourceNamee,
+            final String fieldNamee, final long fieldValuee) {
+<span class="fc" id="L79">        super(String.format(&quot;%s not found with %s : %s&quot;, resourceNamee,</span>
+<span class="fc" id="L80">                fieldNamee, fieldValuee));</span>
+<span class="fc" id="L81">        this.resourceName = resourceNamee;</span>
+<span class="fc" id="L82">        this.fieldName = fieldNamee;</span>
+<span class="fc" id="L83">        this.fieldValue = fieldValuee;</span>
+<span class="fc" id="L84">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
